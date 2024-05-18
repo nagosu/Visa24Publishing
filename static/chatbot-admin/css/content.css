@@ -1,0 +1,133 @@
+.content {
+  width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 250px;
+  background: #f5f5f5;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+}
+
+.header__menu-name {
+  font-size: 20px;
+  line-height: 1.35;
+  color: #1b3133;
+  font-weight: 700;
+}
+
+main__content {
+  display: flex;
+  width: 100%;
+  height: 1000px;
+  background-color: rgb(236, 240, 244);
+}
+
+.pagination {
+  position: absolute;
+  left: 50%;
+  bottom: 50px;
+  display: flex;
+  width: 290px;
+  height: 45px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.pagination__button-prev {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #1b00ff;
+  border-right: none;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1b00ff;
+
+  &:hover {
+    color: #fff;
+    background-color: #1b00ff;
+    border-color: #1b00ff;
+  }
+}
+
+.pagination__button {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 1.2px solid #1b00ff;
+  border-right: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1b00ff;
+
+  &:hover {
+    color: #fff;
+    background-color: #1b00ff;
+    border-color: #1b00ff;
+  }
+}
+
+.pagination__button-prev:hover svg path {
+  stroke: #fff;
+}
+
+.pagination__button-next {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 1.2px solid #1b00ff;
+  border-top-left-radius: 0;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  color: #1b00ff;
+
+  &:hover {
+    color: #fff;
+    background-color: #1b00ff;
+    border-color: #1b00ff;
+  }
+}
+
+.pagination__button-next:hover svg path {
+  stroke: #fff;
+}
+
+.pagination__button--active {
+  color: #fff;
+  background-color: #1b00ff;
+  border-color: #1b00ff;
+}
