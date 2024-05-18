@@ -1,0 +1,151 @@
+.company-management {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+.company-management__button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.company-management__button-select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 35px;
+}
+
+.company-management__button-select.primary {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 1px solid #1b00ff;
+  border-right: none;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 200px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #1b00ff;
+    color: #fff;
+  }
+}
+.company-management__button-select.secondary {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 1px solid #1b00ff;
+  border-top-left-radius: 0;
+  border-top-right-radius: 200px;
+  border-bottom-right-radius: 200px;
+  border-bottom-left-radius: 0;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #1b00ff;
+    color: #fff;
+  }
+}
+
+.company-management__button-select.active {
+  background-color: #1b00ff;
+  color: #fff;
+}
+
+.company-management__button-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  margin-top: 14px;
+  padding: 0 12px;
+  border: 1px solid #1b3133;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.company-management__button-edit-text {
+  color: #1b3133;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.company-management__button-add-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.company-management__button-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80px;
+  height: 30px;
+  margin-top: 14px;
+  padding: 0 12px;
+  border: 1px solid #1b3133;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.company-management__button-add-text {
+  color: #1b3133;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.usage-history__table-item--no {
+  width: 5%;
+}
+
+.usage-history__table-item--company {
+  width: 15%;
+}
+
+.usage-history__table-item--representative {
+  width: 10%;
+}
+
+.usage-history__table-item--phone {
+  width: 20%;
+}
+
+.usage-history__table-item--email {
+  width: 20%;
+}
+
+.usage-history__table-item--account {
+  width: 20%;
+}
+
+.usage-history__table-item--holder {
+  width: 10%;
+}
