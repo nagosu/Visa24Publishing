@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../static/chatbot-admin/css/common.css" />
-    <link rel="stylesheet" href="../../static/chatbot-admin/css/menu02.css" />
+    <link rel="stylesheet" href="../../static/chatbot-admin/css/menu03.css" />
     <title>다국어 지원 설정</title>
   </head>
   <body>
@@ -49,10 +49,58 @@
       <header class="header">
         <span class="header__menu-name">다국어 지원 설정</span>
       </header>
+      <!-- 메인 컨텐츠 -->
+      <section class="main__content">
+        <!-- 다국어 지원 설정 (menu03) -->
+        <div class="language-setting">
+          <div class="language-setting__title">
+            <span class="language-setting__title-text">다국어 지원</span>
+            <span class="language-setting__title-subtext"
+              >* 다국어 지원 OFF 시 홈페이지 시작페이지에서 해당 언어 설정이
+              삭제됩니다.</span
+            >
+          </div>
+          <div class="language-setting__toggle-container">
+            <div class="language-setting__toggle">
+              <div class="language-setting__toggle-title">
+                <span class="language-setting__toggle-title-text">영어</span>
+              </div>
+              <span class="language-setting__toggle-status-off english"
+                >OFF</span
+              >
+              <input type="checkbox" id="toggle" hidden />
+              <label
+                for="toggle"
+                class="language-setting__toggle-switch english"
+              >
+                <span class="language-setting__toggle-button"></span>
+              </label>
+              <span class="language-setting__toggle-status-on english">ON</span>
+            </div>
+            <div class="language-setting__toggle">
+              <div class="language-setting__toggle-title">
+                <span class="language-setting__toggle-title-text chinese"
+                  >중국어</span
+                >
+              </div>
+              <span class="language-setting__toggle-status-off">OFF</span>
+              <input type="checkbox" id="toggle" hidden />
+              <label
+                for="toggle"
+                class="language-setting__toggle-switch chinese"
+              >
+                <span class="language-setting__toggle-button"></span>
+              </label>
+              <span class="language-setting__toggle-status-on chinese">ON</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- 자바스크립트 -->
     <script src="../../static/chatbot-admin/js/navbar.js"></script>
     <script src="../../static/chatbot-admin/js/pagination.js"></script>
+    <script src="../../static/chatbot-admin/js/menu03.js"></script>
   </body>
 </html>

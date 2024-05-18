@@ -1,0 +1,120 @@
+.language-setting {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  height: calc(100% - 50px);
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.language-setting__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.language-setting__title-text {
+  color: #1b3133;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.language-setting__title-subtext {
+  color: #1b3133;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  user-select: none;
+  margin-top: 5px;
+}
+
+.language-setting__toggle-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.language-setting__toggle {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  padding-right: 120px;
+}
+
+.language-setting__toggle-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+.language-setting__toggle-title-text {
+  color: #1b3133;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.language-setting__toggle-status-off,
+.language-setting__toggle-status-on {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  user-select: none;
+  margin: 0 20px;
+}
+
+language-setting__toggle-status-off {
+  color: #1b3133;
+}
+
+.language-setting__toggle-status-on {
+  color: #d4d4d4;
+}
+
+.language-setting__toggle-switch {
+  width: 50px;
+  height: 25px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: #fff;
+  border: 1px solid #d4d4d4;
+  cursor: pointer;
+}
+
+.language-setting__toggle-switch .language-setting__toggle-button {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #1b3133;
+}
+
+.language-setting__toggle-switch.active {
+  background: #d4d4d4;
+}
+
+.language-setting__toggle-switch.active .language-setting__toggle-button {
+  left: calc(100% - 24px);
+  background: #1b3133 !important;
+}
+
+.language-setting__toggle-switch,
+.language-setting__toggle-button {
+  transition: all 0.2s ease-in;
+}
