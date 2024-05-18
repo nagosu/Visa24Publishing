@@ -1,0 +1,105 @@
+.sms-management {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sms-management__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.sms-management__title {
+  display: flex;
+  width: 120px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b3133;
+  color: #fff;
+  border-radius: 1000px;
+}
+
+.sms-management__title-text {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.sms-management__subtext-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.sms-management__subtext {
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  user-select: none;
+  color: #1b3133;
+  padding-left: 4px;
+}
+
+.sms-management__warning {
+  display: flex;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.sms-management__textarea {
+  display: flex;
+  width: 100%;
+  height: 160px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #1b3133;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Inter", "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  resize: none;
+}
+
+.sms-management__save-button-container {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.sms-management__save-button {
+  display: flex;
+  width: 80px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #1b3133;
+  border: 1px solid #1b3133;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #1b3133;
+    color: #fff;
+  }
+}
