@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  border: 1px solid #1b00ff;
+  border: 1px solid #1b3133;
   border-right: none;
   border-top-left-radius: 200px;
   border-top-right-radius: 0;
@@ -41,7 +41,7 @@
     -webkit-box-shadow 0.15s ease-in-out;
 
   &:hover {
-    background-color: #1b00ff;
+    background-color: #1b3133;
     color: #fff;
   }
 }
@@ -51,7 +51,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  border: 1px solid #1b00ff;
+  border: 1px solid #1b3133;
   border-top-left-radius: 0;
   border-top-right-radius: 200px;
   border-bottom-right-radius: 200px;
@@ -64,13 +64,13 @@
     -webkit-box-shadow 0.15s ease-in-out;
 
   &:hover {
-    background-color: #1b00ff;
+    background-color: #1b3133;
     color: #fff;
   }
 }
 
 .company-management__button-select.active {
-  background-color: #1b00ff;
+  background-color: #1b3133;
   color: #fff;
 }
 

@@ -4,6 +4,7 @@
   width: 100%;
   margin: 0 auto;
   background-color: #fff;
+  border: 1px solid #d4d4d4;
   border-radius: 8px;
   padding: 20px;
 }
@@ -19,7 +20,7 @@
 
 .language-setting__title-text {
   color: #1b3133;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.03em;
   user-select: none;
@@ -72,6 +73,7 @@
   letter-spacing: 0.03em;
   user-select: none;
   margin: 0 20px;
+  transition: all 0.2s ease-in;
 }
 
 language-setting__toggle-status-off {

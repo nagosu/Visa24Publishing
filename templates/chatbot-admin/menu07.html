@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../static/chatbot-admin/css/common.css" />
-    <link rel="stylesheet" href="../../static/chatbot-admin/css/menu02.css" />
+    <link rel="stylesheet" href="../../static/chatbot-admin/css/menu07.css" />
     <title>대행 신청 업체</title>
   </head>
   <body>
@@ -49,10 +49,99 @@
       <header class="header">
         <span class="header__menu-name">대행 신청 업체</span>
       </header>
+      <!-- 메인 컨텐츠 -->
+      <section class="main__content">
+        <!-- 대행 신청 업체 (menu07) -->
+        <div class="agency">
+          <!-- 대행신청 업체 선택 토글 -->
+          <div class="agency__toggle">
+            <span class="agency__toggle-title">대행신청 업체</span>
+            <div class="agency__toggle-container">
+              <span class="agency__toggle-visa">비자24</span>
+              <input type="checkbox" id="toggle" hidden />
+              <label for="toggle" class="agency__toggle-switch">
+                <span class="agency__toggle-button"></span>
+              </label>
+              <span class="agency__toggle-company">입점사</span>
+            </div>
+          </div>
+          <!-- 비자24 정보 -->
+          <div class="agency__info">
+            <div class="agency__info-title-container">
+              <span class="agency__info-title">비자24 정보</span>
+              <button class="agency__info-save-button">저장</button>
+            </div>
+            <div class="agency__info-input-container">
+              <div class="agency__info-input-wrapper primary">
+                <div class="agency__info-input company">
+                  <span class="agency__info-input-label">업체명</span>
+                  <input
+                    type="text"
+                    class="agency__info-input-box"
+                    placeholder="업체명"
+                  />
+                </div>
+                <div class="agency__info-input representative">
+                  <span class="agency__info-input-label">대표자</span>
+                  <input
+                    type="text"
+                    class="agency__info-input-box"
+                    placeholder="대표자"
+                  />
+                </div>
+              </div>
+              <div class="agency__info-input-wrapper secondary">
+                <div class="agency__info-input phone">
+                  <span class="agency__info-input-label">연락처</span>
+                  <input
+                    type="text"
+                    class="agency__info-input-box"
+                    placeholder="연락처"
+                  />
+                </div>
+                <div class="agency__info-input email">
+                  <span class="agency__info-input-label">이메일</span>
+                  <input
+                    type="text"
+                    class="agency__info-input-box"
+                    placeholder="이메일"
+                  />
+                </div>
+              </div>
+              <div class="agency__info-input-wrapper tertiary">
+                <div class="agency__info-input account">
+                  <span class="agency__info-input-label account">계좌번호</span>
+                  <div class="agency__info-account-input-wrapper">
+                    <input
+                      type="text"
+                      class="agency__info-input-box"
+                      placeholder="은행명"
+                    />
+                    <input
+                      type="text"
+                      class="agency__info-input-box"
+                      placeholder="계좌번호"
+                    />
+                  </div>
+                </div>
+                <div class="agency__info-input holder">
+                  <span class="agency__info-input-label holder">예금주</span>
+                  <input
+                    type="text"
+                    class="agency__info-input-box"
+                    placeholder="예금주"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- 자바스크립트 -->
     <script src="../../static/chatbot-admin/js/navbar.js"></script>
     <script src="../../static/chatbot-admin/js/pagination.js"></script>
+    <script src="../../static/chatbot-admin/js/menu07.js"></script>
   </body>
 </html>
