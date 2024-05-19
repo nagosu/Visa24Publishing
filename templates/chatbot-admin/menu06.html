@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../static/chatbot-admin/css/common.css" />
-    <link rel="stylesheet" href="../../static/chatbot-admin/css/menu02.css" />
+    <link rel="stylesheet" href="../../static/chatbot-admin/css/menu06.css" />
     <title>결제 내역 조회</title>
   </head>
   <body>
@@ -49,10 +49,300 @@
       <header class="header">
         <span class="header__menu-name">결제 내역 조회</span>
       </header>
+      <!-- 메인 컨텐츠 -->
+      <section class="main__content">
+        <!-- 결제 내역 조회 (menu06) -->
+        <div class="payment-history">
+          <!-- 검색 기능 -->
+          <div class="search-bar">
+            <!-- 카테고리 드롭다운 -->
+            <div class="search-bar__category-dropdown">
+              <select
+                id="categorySelect"
+                class="search-bar__category-dropdown-select"
+              >
+                <option value="카테고리 명" selected hidden>카테고리 명</option>
+                <option value="No">No</option>
+                <option value="이용자명">이용자명</option>
+                <option value="연락처">연락처</option>
+                <option value="카테고리">카테고리</option>
+                <option value="요청 업무">요청 업무</option>
+                <option value="결제 금액">결제 금액</option>
+                <option value="대행 업체">대행 업체</option>
+                <option value="결제 날짜">결제 날짜</option>
+              </select>
+              <svg
+                class="search-bar__category-dropdown-icon"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z"
+                  fill="#1b3133"
+                />
+              </svg>
+            </div>
+            <!-- 검색창 -->
+            <div class="search-bar__input-container">
+              <div class="search-bar__input">
+                <input
+                  type="text"
+                  id="searchInput"
+                  class="search-bar__input-box"
+                  placeholder="텍스트 입력"
+                />
+                <svg
+                  class="search-bar__input-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="11"
+                    cy="11"
+                    r="7"
+                    stroke="#1b3133"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M20 20L17 17"
+                    stroke="#1b3133"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <span class="search-bar__input-warning"
+                >* 카테고리를 선택 후 입력해 주세요.</span
+              >
+            </div>
+          </div>
+          <!-- 사용 기록 테이블 -->
+          <table class="usage-history__table">
+            <thead class="usage-history__table-header">
+              <tr class="usage-history__table-container">
+                <th
+                  class="usage-history__table-item usage-history__table-item--no"
+                >
+                  No.
+                </th>
+                <th
+                  class="usage-history__table-item usage-history__table-item--name"
+                >
+                  이용자명
+                </th>
+                <th
+                  class="usage-history__table-item usage-history__table-item--phone"
+                >
+                  연락처
+                </th>
+                <th
+                  class="usage-history__table-item usage-history__table-item--category"
+                >
+                  카테고리
+                </th>
+                <th
+                  class="usage-history__table-item usage-history__table-item--task"
+                >
+                  요청 업무
+                </th>
+                <th
+                  class="usage-history__table-item usage-history__table-item--charge"
+                >
+                  결제 금액
+                </th>
+                <th
+                  class="usage-history__table-item usage-history__table-item--agency"
+                >
+                  대행 업체
+                </th>
+                <th
+                  class="usage-history__table-item usage-history__table-item--date"
+                >
+                  결제 날짜
+                </th>
+              </tr>
+            </thead>
+            <tbody class="usage-history__table-data">
+              <tr class="usage-history__table-container">
+                <td
+                  class="usage-history__table-item usage-history__table-item--no"
+                >
+                  150
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--name"
+                >
+                  김엔디
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--phone"
+                >
+                  010-1234-5678
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--category"
+                >
+                  근무처 변경
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--task"
+                >
+                  서류 작성
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--charge"
+                >
+                  10000
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--agency"
+                >
+                  VISAYA
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--date"
+                >
+                  24.04.30 10:12:51
+                </td>
+              </tr>
+            </tbody>
+            <tbody class="usage-history__table-data">
+              <tr class="usage-history__table-container">
+                <td
+                  class="usage-history__table-item usage-history__table-item--no"
+                >
+                  150
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--name"
+                >
+                  김엔디
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--phone"
+                >
+                  010-1234-5678
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--category"
+                >
+                  근무처 변경
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--task"
+                >
+                  서류 작성
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--charge"
+                >
+                  10000
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--agency"
+                >
+                  VISAYA
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--date"
+                >
+                  24.04.30 10:12:51
+                </td>
+              </tr>
+            </tbody>
+            <tbody class="usage-history__table-data">
+              <tr class="usage-history__table-container">
+                <td
+                  class="usage-history__table-item usage-history__table-item--no"
+                >
+                  150
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--name"
+                >
+                  김엔디
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--phone"
+                >
+                  010-1234-5678
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--category"
+                >
+                  근무처 변경
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--task"
+                >
+                  서류 작성
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--charge"
+                >
+                  10000
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--agency"
+                >
+                  VISAYA
+                </td>
+                <td
+                  class="usage-history__table-item usage-history__table-item--date"
+                >
+                  24.04.30 10:12:51
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 페이지네이션 -->
+        <div class="pagination">
+          <button class="pagination__button-prev">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12 18L6 12L12 6" stroke="#1b00ff" stroke-width="1.5" />
+              <path d="M18 18L12 12L18 6" stroke="#1b00ff" stroke-width="1.5" />
+            </svg>
+          </button>
+          <button class="pagination__button pagination__button--active">
+            1
+          </button>
+          <button class="pagination__button">2</button>
+          <button class="pagination__button">3</button>
+          <button class="pagination__button">4</button>
+          <button class="pagination__button">5</button>
+          <button class="pagination__button-next">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12 18L18 12L12 6" stroke="#1b00ff" stroke-width="1.5" />
+              <path d="M6 18L12 12L6 6" stroke="#1b00ff" stroke-width="1.5" />
+            </svg>
+          </button>
+        </div>
+      </section>
     </div>
 
     <!-- 자바스크립트 -->
     <script src="../../static/chatbot-admin/js/navbar.js"></script>
     <script src="../../static/chatbot-admin/js/pagination.js"></script>
+    <script src="../../static/chatbot-admin/js/search.js"></script>
+    <script src="../../static/chatbot-admin/js/menu06.js"></script>
   </body>
 </html>
