@@ -3,14 +3,303 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../static/chatbot-front/css/styles.css" />
+    <link rel="stylesheet" href="../../static/chatbot-front/css/common.css" />
+    <link rel="stylesheet" href="../../static/chatbot-front/css/chatbot.css" />
     <title>front</title>
   </head>
   <body>
     <div class="chatbot">
-      <div class="head"></div>
-      <div class="content"></div>
-      <div class="bottom"></div>
+      <!-- head -->
+      <div class="head">
+        <div class="head__container">
+          <img
+            src="../../static/chatbot-front/images/logo.jpg"
+            alt="logo"
+            class="logo"
+          />
+          <span class="title">VISA24</span>
+        </div>
+      </div>
+
+      <!-- content -->
+      <div class="content">
+        <div class="content__container">
+          <div class="chat__container">
+            <div class="chat__wrapper">
+              <div class="chat__chatbot">
+                <img
+                  src="../../static/chatbot-front/images/avatar.png"
+                  alt="avatar"
+                />
+                <div class="chat__text-container">
+                  <!-- 안내 멘트 -->
+                  <div class="chat__text">
+                    <span
+                      >VISA24입니다. 무엇을 도와드릴까요? 아래 비자 업무를
+                      선택하거나 궁금한 사항을 입력해 주세요.</span
+                    >
+                  </div>
+                  <!-- 1단계 -->
+                  <div class="chat__text">
+                    <div class="chat__select">
+                      <button type="button" class="first-step__button">
+                        VISA(국내)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(해외)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(관련)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(국적신청)
+                      </button>
+                    </div>
+                  </div>
+                  <!-- 2단계 -->
+                  <div class="chat__text">
+                    <div class="chat__select">
+                      <span class="chat__select-text"
+                        >2단계 아래의 VISA 코드를 선택해 주세요.</span
+                      >
+                      <div class="divCol">
+                        <!-- 카테고리 드롭다운 -->
+                        <div class="category-dropdown">
+                          <select
+                            id="categorySelect"
+                            class="category-dropdown-select"
+                          >
+                            <option
+                              value="업무를 선택해 주세요"
+                              selected
+                              hidden
+                            >
+                              업무를 선택해 주세요
+                            </option>
+                            <option value="H-2(방문취업)">H-2(방문취업)</option>
+                            <option value="F-4(통합연장)">F-4(통합연장)</option>
+                            <option value="F-4(재외동포)">F-4(재외동포)</option>
+                            <option value="F-5(국민의배우자 영주권*동포영주권)">
+                              F-5(국민의배우자 영주권*동포영주권)
+                            </option>
+                            <option value="A-1(외교)">A-1(외교)</option>
+                            <option value="A-2(공무)">A-2(공무)</option>
+                          </select>
+                          <svg
+                            class="category-dropdown-icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z"
+                              fill="#1b3133"
+                            />
+                          </svg>
+                        </div>
+                        <span>* 카테고리를 선택 후 입력해 주세요.</span>
+                      </div>
+                      <button
+                        class="chat__select-done-button"
+                        id="secondStepButton"
+                      >
+                        다음
+                      </button>
+                    </div>
+                  </div>
+                  <!-- 이전/처음 버튼 -->
+                  <div class="chat__reset">
+                    <button class="chat__reset-button prev">
+                      <span>이전으로</span
+                      ><svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M4 8L3.29289 8.70711L2.58579 8L3.29289 7.29289L4 8ZM9 20C8.44772 20 8 19.5523 8 19C8 18.4477 8.44772 18 9 18L9 20ZM8.29289 13.7071L3.29289 8.70711L4.70711 7.29289L9.70711 12.2929L8.29289 13.7071ZM3.29289 7.29289L8.29289 2.29289L9.70711 3.70711L4.70711 8.70711L3.29289 7.29289ZM4 7L14.5 7L14.5 9L4 9L4 7ZM14.5 20L9 20L9 18L14.5 18L14.5 20ZM21 13.5C21 17.0898 18.0898 20 14.5 20L14.5 18C16.9853 18 19 15.9853 19 13.5L21 13.5ZM14.5 7C18.0899 7 21 9.91015 21 13.5L19 13.5C19 11.0147 16.9853 9 14.5 9L14.5 7Z"
+                          fill="#33363F"
+                        />
+                      </svg>
+                    </button>
+                    <button class="chat__reset-button home">
+                      <span>처음으로</span
+                      ><svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5.27446 10.1262C5 10.7229 5 11.4018 5 12.7595V16.9999C5 18.8856 5 19.8284 5.58579 20.4142C6.11733 20.9457 6.94285 20.9949 8.5 20.9995V16C8.5 14.8954 9.39543 14 10.5 14H13.5C14.6046 14 15.5 14.8954 15.5 16V20.9995C17.0572 20.9949 17.8827 20.9457 18.4142 20.4142C19 19.8284 19 18.8856 19 16.9999V12.7595C19 11.4018 19 10.7229 18.7255 10.1262C18.4511 9.52943 17.9356 9.08763 16.9047 8.20401L15.9047 7.34687C14.0414 5.74974 13.1098 4.95117 12 4.95117C10.8902 4.95117 9.95857 5.74974 8.09525 7.34687L7.09525 8.20401C6.06437 9.08763 5.54892 9.52943 5.27446 10.1262ZM13.5 20.9999V16H10.5V20.9999H13.5Z"
+                          fill="#222222"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <!-- 3단계 -->
+                  <div class="chat__text">
+                    <div class="chat__select">
+                      <span class="chat__select-text"
+                        >3단계 아래의 VISA 코드를 선택해 주세요.</span
+                      >
+                      <div class="divCol">
+                        <!-- 카테고리 드롭다운 -->
+                        <div class="category-dropdown">
+                          <select
+                            id="categorySelect"
+                            class="category-dropdown-select"
+                          >
+                            <option
+                              value="업무를 선택해 주세요"
+                              selected
+                              hidden
+                            >
+                              업무를 선택해 주세요
+                            </option>
+                            <option value="H-2(방문취업)">H-2(방문취업)</option>
+                            <option value="F-4(통합연장)">F-4(통합연장)</option>
+                            <option value="F-4(재외동포)">F-4(재외동포)</option>
+                            <option value="F-5(국민의배우자 영주권*동포영주권)">
+                              F-5(국민의배우자 영주권*동포영주권)
+                            </option>
+                            <option value="A-1(외교)">A-1(외교)</option>
+                            <option value="A-2(공무)">A-2(공무)</option>
+                          </select>
+                          <svg
+                            class="category-dropdown-icon"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M11.8079 14.7695L8.09346 10.3121C7.65924 9.79109 8.02976 9 8.70803 9L15.292 9C15.9702 9 16.3408 9.79108 15.9065 10.3121L12.1921 14.7695C12.0921 14.8895 11.9079 14.8895 11.8079 14.7695Z"
+                              fill="#1b3133"
+                            />
+                          </svg>
+                        </div>
+                        <span>* 카테고리를 선택 후 입력해 주세요.</span>
+                      </div>
+                      <button
+                        class="chat__select-done-button"
+                        id="thirdStepButton"
+                      >
+                        완료
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 사용자 채팅 -->
+              <div class="chat__user">
+                <div class="chat__user-text-container">
+                  <div class="chat__user-text">VISA(해외)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- bottom -->
+      <div class="bottom">
+        <div class="bottom__container">
+          <div class="input__container">
+            <input
+              class="input-box"
+              type="text"
+              placeholder="질문을 입력해 주세요."
+            />
+            <button type="button">
+              <svg
+                class="send-button"
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+              >
+                <g id="icon" transform="translate(-1819 -884)">
+                  <circle
+                    id="타원_2666"
+                    data-name="타원 2666"
+                    cx="15"
+                    cy="15"
+                    r="15"
+                    transform="translate(1819 884)"
+                    fill="#13b256"
+                  />
+                  <g id="그룹_19700" data-name="그룹 19700">
+                    <rect
+                      id="area"
+                      width="12"
+                      height="16"
+                      transform="translate(1828 891)"
+                      fill="none"
+                    />
+                    <path
+                      id="패스_16448"
+                      data-name="패스 16448"
+                      d="M9.5,19.3,13.8,15l4.3,4.3"
+                      transform="translate(1820.203 877.041)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                    <path
+                      id="패스_16449"
+                      data-name="패스 16449"
+                      d="M18,4.5V18.417"
+                      transform="translate(1816 887.543)"
+                      fill="none"
+                      stroke="#fff"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </div>
+          <button class="voice-button">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="8" y="2" width="8" height="13" rx="4" fill="#000000" />
+              <path
+                d="M5 11C5 12.8565 5.7375 14.637 7.05025 15.9497C8.36301 17.2625 10.1435 18 12 18C13.8565 18 15.637 17.2625 16.9497 15.9497C18.2625 14.637 19 12.8565 19 11"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12 21V19"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
+    <script src="../../static/chatbot-front/js/index.js"></script>
   </body>
 </html>
