@@ -3,10 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const voiceButton = document.querySelector(".voice-button");
   const chatWrapper = document.querySelector(".chat__wrapper");
   const sendButton = document.querySelector(".send-button");
-  const categorySelect = document.getElementById("categorySelect");
+  const categorySelect = document.querySelectorAll(".category-dropdown-select");
   const firstStepButtons = document.querySelectorAll(".first-step__button");
   const secondStepButton = document.getElementById("secondStepButton");
   const thirdStepButton = document.getElementById("thirdStepButton");
+  const secondCategory = document.querySelector(
+    "category-dropdown-select.second"
+  );
+  const thirdCategory = document.querySelector(
+    "category-dropdown-select.third"
+  );
 
   // 1단계 버튼에 클릭 이벤트 추가
   firstStepButtons.forEach((button) => {
@@ -23,8 +29,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 2단계 버튼에 클릭 이벤트 추가
   secondStepButton.addEventListener("click", function () {
+    // 2단계에서 선택한 카테고리 값 가져오기
+    const selectedValue = categorySelect.value;
+
+    // 메시지 전송
+    sendMessage(selectedValue);
+
     // 3단계 표시
     showThirdStep();
+  });
+
+  // 3단계 버튼에 클릭 이벤트 추가
+  thirdStepButton.addEventListener("click", function () {
+    // 3단계에서 선택한 카테고리 값 가져오기
+    const selectedValue = categorySelect.value;
+
+    // 메시지 전송
+    sendMessage(selectedValue);
   });
 
   // 메시지 서버통신
