@@ -336,6 +336,16 @@
   height: 20px;
 }
 
+.bold-text {
+  font-weight: 600;
+}
+
+.colDiv {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 .bottom {
   display: flex;
   width: 400px;
