@@ -1,0 +1,271 @@
+.ttl-grp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 490px;
+  width: 100%;
+}
+
+.list-item-grp {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  gap: 30px;
+}
+
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+}
+
+.list-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+.list-item-top .num,
+.list-item-top .btn {
+  flex-shrink: 0;
+}
+
+.list-item-top .form-control {
+  width: 100%;
+}
+
+.list-item-top .num {
+  border-radius: 6px;
+  min-width: 40px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  font-weight: 600;
+  border: 1px solid #8d8d8d;
+  color: #565656;
+}
+
+.list-item .form-control {
+  border-color: #8b8b8b;
+}
+
+.list-item-bottom {
+  width: 100%;
+}
+
+.btn-navy {
+  background-color: #142127;
+  font-weight: 600;
+  color: white;
+}
+
+.btn-navy:hover {
+  color: white;
+}
+
+.btn-navy.active {
+  background-color: white;
+  border-color: #142127;
+  color: #142127;
+}
+
+.btn-navy.active:hover {
+  color: #142127;
+}
+
+.form-group .inp-grp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.form-group .inp-grp .btn {
+  flex-shrink: 0;
+}
+
+.form-group .required-txt {
+  color: #1b00ff;
+}
+
+textarea.form-control.textarea-row3 {
+  height: 80px;
+}
+
+textarea.form-control.textarea-row4 {
+  height: 120px;
+}
+
+textarea.form-control.textarea-row5 {
+  height: 120px;
+}
+
+.h100-card-box {
+  height: calc(100vh - 132px);
+  overflow: auto;
+}
+
+.edit-area {
+  display: none;
+}
+
+.edit-area.active {
+  display: block;
+}
+
+.edit-area-card-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-area-card-box .form-group-wrap {
+  width: 100%;
+  height: calc(100% - 85px);
+  overflow: auto;
+}
+
+.edit-area-card-box .form-btn-group {
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  border-top: 1px solid #d4d4d4;
+}
+
+.custom-file-label::after {
+  content: "파일선택";
+}
+
+.sample-img {
+  height: 45px;
+  object-fit: contain;
+}
+
+.table thead th.ta-center,
+.table tbody th.ta-center {
+  text-align: center;
+}
+
+.flex-item-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.tbl-opt-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.tbl-opt-bar .custom-control {
+  padding-bottom: 0;
+}
+
+.tbl-opt-right .custom-select {
+  width: 150px;
+}
+
+.search-inp {
+  width: 310px;
+  position: relative;
+}
+
+.search-inp .form-control {
+  padding-right: 48px;
+}
+
+.search-inp .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/*텍스트가 길어지면 점점 표시 등*/
+.text-cell {
+    max-width: 150px; /* 원하는 최대 너비로 설정 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*숨기기 스타일*/
+.hidden {
+    display: none;
+}
+
+
+/* 로딩 */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  z-index: 9999;
+  opacity: 0.8;
+  transition: 0.5s ease;
+  display: none;
+}
+
+.loading_box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  background: #bebebe;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.loading_box .loadingIcon {
+  z-index: 1;
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #bebebe;
+  width: 24px;
+  height: 24px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+/* 로딩 돌리는거 */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

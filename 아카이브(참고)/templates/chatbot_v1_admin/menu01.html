@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8" />
+    <title>Fortune Admin</title>
+
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/vendors/styles/core.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/vendors/styles/icon-font.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/src/plugins/datatables/css/responsive.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/vendors/styles/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin//css/admin-style1.css"
+    />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"
+    ></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-GBZ3SGGX85");
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script src="../../static/chatbot_v1_admin/js/jquery-3.6.1.min.js"></script>
+  </head>
+
+  <body>
+    {% csrf_token %}
+    <div class="header">
+      <div class="header-left">
+        <div class="menu-icon bi bi-list"></div>
+        <div
+          class="search-toggle-icon bi bi-search"
+          data-toggle="header_search"
+        ></div>
+
+        <div class="title ttl-grp">
+          <h4 class="h4 mb-0">이미지 편집</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="left-side-bar">
+      <div class="menu-block customscroll">
+        <div class="sidebar-menu">
+          <ul id="accordion-menu">
+            <li>
+              <div class="sidebar-small-cap">MENU</div>
+            </li>
+            <li class="dropdown">
+              <a href="index" class="dropdown-toggle no-arrow">
+                <span class="micon bi bi-clipboard-plus"></span>
+                <span class="mtext">사이트 편집</span>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="menu01" class="dropdown-toggle no-arrow">
+                <span class="micon bi bi-file-earmark-image"></span>
+                <span class="mtext">이미지 편집</span>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="menu02" class="dropdown-toggle no-arrow">
+                <span class="micon bi bi-table"></span>
+                <span class="mtext">GPT 사용기록</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+
+    <div class="main-container">
+      <div class="xs-pd-20-10 pd-ltr-20">
+        <div class="row">
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 col-sm-12 mb-30">
+            <div class="card-box h100-card-box">
+              <div class="form-group-wrap pd-20">
+                <div class="tbl-opt-left">
+                  <div class="flex-item-group">
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        id="customRadio_left1"
+                        name="customRadio_left"
+                        class="custom-control-input"
+                        checked
+                      />
+                      <label
+                        class="custom-control-label image"
+                        for="customRadio_left1"
+                        >이미지</label
+                      >
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        id="customRadio_left2"
+                        name="customRadio_left"
+                        class="custom-control-input"
+                      />
+                      <label
+                        class="custom-control-label text"
+                        for="customRadio_left2"
+                        >텍스트</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>이름 (기존=업데이트, 신규=생성)</label>
+                  <input type="text" class="form-control" placeholder="이름" />
+                </div>
+                <div class="form-group">
+                  <label>그룹</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="그룹명"
+                  />
+                </div>
+                <div class="form-group" id="form_url">
+                  <label>연결 URL</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="url주소"
+                  />
+                </div>
+                <div class="form-group" id="form_image">
+                  <label>이미지 업로드</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" />
+                    <label class="custom-file-label">이미지를 선택하세요</label>
+                  </div>
+                </div>
+                <div class="form-group" id="form_text" style="display: none">
+                  <label>텍스트</label>
+                  <textarea
+                    class="form-control"
+                    placeholder="텍스트 입력"
+                  ></textarea>
+                </div>
+                <div class="form-btn-group">
+                  <button type="button" class="btn btn-navy">완료</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="pd-20 card-box h100-card-box">
+              <div class="tbl-opt-bar">
+                <div class="tbl-opt-left">
+                  <div class="flex-item-group">
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        id="customRadio1"
+                        name="customRadio"
+                        class="custom-control-input"
+                        checked
+                      />
+                      <label class="custom-control-label new" for="customRadio1"
+                        >최신순</label
+                      >
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        id="customRadio2"
+                        name="customRadio"
+                        class="custom-control-input"
+                      />
+                      <label
+                        class="custom-control-label name"
+                        for="customRadio2"
+                        >이름순</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="tbl-opt-right">
+                  <div class="flex-item-group">
+                    <select class="custom-select">
+                      <option value="이름">이름</option>
+                      <option value="그룹">그룹</option>
+                    </select>
+
+                    <div class="search-inp">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="텍스트 입력"
+                      />
+                      <button type="button" class="btn">
+                        <i class="icon-copy bi bi-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <table class="table mb-20">
+                <thead>
+                  <tr>
+                    <th scope="col">이미지 넘버</th>
+                    <th scope="col">생성날짜</th>
+                    <th scope="col">이름</th>
+                    <th scope="col">그룹</th>
+                    <th scope="col">연결 url</th>
+                    <th scope="col" class="ta-center">이미지 샘플</th>
+                    <th scope="col">텍스트</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+
+              <div
+                class="modal fade"
+                id="confirmation-modal"
+                tabindex="-1"
+                role="dialog"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body text-center font-18">
+                      <h4 class="padding-top-30 mb-30 weight-500">
+                        정말로 삭제하시겠습니까?
+                      </h4>
+                      <div
+                        class="padding-bottom-30 row"
+                        style="max-width: 170px; margin: 0 auto"
+                      >
+                        <div class="col-6">
+                          <button
+                            type="button"
+                            class="btn btn-secondary border-radius-100 btn-block confirmation-btn"
+                            data-dismiss="modal"
+                          >
+                            <i class="fa fa-times"></i>
+                          </button>
+                          아니요
+                        </div>
+                        <div class="col-6">
+                          <button
+                            type="button"
+                            class="btn btn-primary border-radius-100 btn-block confirmation-btn"
+                            data-dismiss="modal"
+                          >
+                            <i class="fa fa-check"></i>
+                          </button>
+                          네
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pagination">
+                <div class="btn-toolbar justify-content-center mb-15">
+                  <div class="btn-group">
+                    <a href="#" class="btn btn-outline-primary prev"
+                      ><i class="fa fa-angle-double-left"></i
+                    ></a>
+                    <a href="#" class="btn btn-outline-primary active">1</a>
+                    <a href="#" class="btn btn-outline-primary">2</a>
+                    <a href="#" class="btn btn-outline-primary">3</a>
+                    <a href="#" class="btn btn-outline-primary">4</a>
+                    <a href="#" class="btn btn-outline-primary">5</a>
+                    <a href="#" class="btn btn-outline-primary next"
+                      ><i class="fa fa-angle-double-right"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Modal -->
+    <div
+      class="modal fade"
+      id="text-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="textModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="textModalLabel">전체 텍스트</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- 여기에 텍스트가 들어갑니다 -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- js -->
+    <script src="../../static/chatbot_v1_admin/js/menu01.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/core.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/script.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/process.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/layout-settings.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/dashboard3.js"></script>
+    <script>
+      //처음에는 버튼 클릭해주기
+      menu_menu01();
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>

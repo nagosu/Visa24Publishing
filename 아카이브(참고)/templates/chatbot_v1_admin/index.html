@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic Page Info -->
+  <meta charset="utf-8" />
+  <title>Admin</title>
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <!-- CSS -->
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+
+  <link rel="stylesheet" type="text/css" href="../../static/chatbot_v1_admin/vendors/styles/core.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/chatbot_v1_admin/vendors/styles/icon-font.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/chatbot_v1_admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/chatbot_v1_admin/src/plugins/datatables/css/responsive.bootstrap4.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/chatbot_v1_admin/vendors/styles/style.css" />
+  <link rel="stylesheet" type="text/css" href="../../static/chatbot_v1_admin/css/admin-style1.css" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
+    crossorigin="anonymous"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-GBZ3SGGX85");
+  </script>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != "dataLayer" ? "&l=" + l : "";
+      j.async = true;
+      j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
+  </script>
+  <!-- End Google Tag Manager -->
+  <script src="../../static/chatbot_v1_admin/js/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+{% csrf_token %}
+  <div class="header">
+    <div class="header-left">
+      <div class="menu-icon bi bi-list"></div>
+      <div class="search-toggle-icon bi bi-search" data-toggle="header_search"></div>
+
+      <div class="title ttl-grp">
+        <h4 class="h4 mb-0">카테고리 리스트</h4>
+
+        <button type="button" class="btn btn-primary category_add">+ 추가</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="left-side-bar">
+    <div class="menu-block customscroll">
+      <div class="sidebar-menu">
+        <ul id="accordion-menu">
+          <li>
+            <div class="sidebar-small-cap">MENU</div>
+          </li>
+          <li class="dropdown" id="menu_1">
+            <a href="index" class="dropdown-toggle no-arrow">
+              <span class="micon bi bi-clipboard-plus"></span>
+              <span class="mtext">카테고리 편집</span>
+            </a>
+          </li>
+{#          <li class="dropdown">#}
+{#            <a href="menu01" class="dropdown-toggle no-arrow">#}
+{#              <span class="micon bi bi-file-earmark-image"></span>#}
+{#              <span class="mtext">이미지 편집</span>#}
+{#            </a>#}
+{#          </li>#}
+          <li class="dropdown">
+            <a href="menu02" class="dropdown-toggle no-arrow">
+              <span class="micon bi bi-table"></span>
+              <span class="mtext">GPT 사용기록</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu-overlay"></div>
+
+  <div class="main-container">
+    <div class="xs-pd-20-10 pd-ltr-20">
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 col-sm-12 mb-30">
+          <div class="pd-20 card-box h100-card-box">
+{#            사이트리스트 추가하는 부분#}
+            <div class="list-item-grp">
+            </div>
+{#            삭제 모달#}
+            <div class="modal fade" id="confirmation-modal" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-body text-center font-18">
+                    <h4 class="padding-top-30 mb-30 weight-500">
+                      정말로 삭제하시겠습니까?
+                    </h4>
+                    <div class="padding-bottom-30 row" style="max-width: 170px; margin: 0 auto">
+                      <div class="col-6">
+                        <button type="button" class="btn btn-secondary border-radius-100 btn-block confirmation-btn"
+                          data-dismiss="modal">
+                          <i class="fa fa-times"></i>
+                        </button>
+                        아니요
+                      </div>
+                      <div class="col-6">
+                        <button type="button" class="btn btn-primary border-radius-100 btn-block confirmation-btn"
+                          data-dismiss="modal" id="btn_confirm_category_delete">
+                          <i class="fa fa-check"></i>
+                        </button>
+                        네
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+{#        수정 서브 메뉴#}
+        <div id="edit-area" class="edit-area col-md-8">
+          <div class="card-box h100-card-box edit-area-card-box">
+            <div class="form-group-wrap pd-20">
+              <div class="form-group">
+                <label>
+                  <span class="required-txt">(필수)</span>카테고리 명칭</label>
+                <input type="text" class="form-control" id="categoryName_input" placeholder="<필수입력> 사이트명을 입력해주세요">
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <span class="required-txt">(필수)</span>GPT버전</label>
+
+                <div class="custom-control custom-radio mb-5">
+                  <input type="radio" id="customRadio3" name="gptversion" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio3">3.5</label>
+                </div>
+                <div class="custom-control custom-radio mb-5">
+                  <input type="radio" id="customRadio4" name="gptversion" class="custom-control-input" checked>
+                  <label class="custom-control-label" for="customRadio4">4.0</label>
+                </div>
+              </div>
+              <div class="form-group hidden">
+                <label>
+                  <span class="required-txt">(필수)</span>음성 입출력</label>
+
+                <div class="custom-control custom-radio mb-5">
+                  <input type="radio" id="customRadio5" name="voiceinout" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio5">ON</label>
+                </div>
+                <div class="custom-control custom-radio mb-5">
+                  <input type="radio" id="customRadio6" name="voiceinout" class="custom-control-input" checked>
+                  <label class="custom-control-label" for="customRadio6">OFF</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>
+                  <span class="required-txt">(필수)</span>
+                  [학습데이터] 텍스트 입력 / 파일 입력 선택</label>
+                <div class="custom-control custom-radio mb-5">
+                  <input type="radio" id="customRadio7" name="customRadio" class="custom-control-input" checked>
+                  <label class="custom-control-label" for="customRadio7">학습데이터 : 텍스트 입력(스트리밍/찾기 실패 메시지 세팅 가능)</label>
+                </div>
+                <div class="custom-control custom-radio mb-5">
+                  <input type="radio" id="customRadio8" name="customRadio" class="custom-control-input">
+                  <label class="custom-control-label" for="customRadio8">학습데이터 : 파일 입력</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label><span class="required-txt">(필수)</span>AI 인사 메시지</label>
+                <textarea class="form-control textarea-row3" id="categoryHiMsg_input1"
+                  placeholder="AI 메시지를 입력하세요. 비어있으면 GPT 답변 응답을 합니다.내용이 있으면 GPT 응답이 아닌 입력된 내용으로만 응답을 합니다."></textarea>
+              </div>
+              <div class="form-group" id="form_data_file1" style="display: none;">
+                <label><span class="required-txt">(필수)</span>학습 데이터 파일 입력(1번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="custom-file-input1">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_text">
+                <label>(선택)학습 데이터 텍스트 입력</label>
+                <textarea class="form-control textarea-row5" id="categoryDataText_input"
+                  placeholder="AI 챗봇 학습에 필요한 데이터를 입력하세요."></textarea>
+              </div>
+              <div class="form-group" id="form_data_order">
+                <label>(선택)지침 데이터 텍스트 입력</label>
+                <textarea class="form-control textarea-row4" id="categoryDataOrder_input"
+                  placeholder="AI 챗봇 학습에 필요한 지침(시스템 요청)을 입력하세요."></textarea>
+              </div>
+              <div class="form-group" id="form_nodata">
+                <label>(선택)데이터 찾기 실패시 응답 메시지</label>
+                <textarea class="form-control textarea-row3" id="categoryNodataMsg_input"
+                  placeholder="관련 데이터를 찾지 못할시 표시할 메시지를 입력하세요.
+입력이 있으면 학습 데이터 내에서만 답변합니다. / 입력이 없으면 학습데이터에 없는 내용도 자유롭게 대답합니다.
+EX : 죄송합니다. 관련 내용을 찾지 못했습니다. 상세한 상담을 원하시면 000-1234-4567로 문의 바랍니다."></textarea>
+              </div>
+
+
+              <div class="form-group" id="form_data_file2" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(2번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file3" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(3번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file4" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(4번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file5" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(5번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file6" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(6번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file7" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(7번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file8" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(8번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file9" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(9번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file10" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(10번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file11" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(11번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file12" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(12번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file13" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(13번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file14" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(14번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file15" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(15번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file16" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(16번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file17" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(17번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file18" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(18번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file19" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(19번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+              <div class="form-group" id="form_data_file20" style="display: none;">
+                <label>(선택)학습 데이터 파일 입력(20번) - 모든 설정 변경시 파일 재업로드 필수</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input">
+                  <label class="custom-file-label">txt, pdf, pptx, docx 등 파일를 선택하세요</label>
+                </div>
+              </div>
+            <div class="form-btn-group">
+              <button type="button" class="btn btn-navy confirm_button">전송</button>
+              <button type="button" class="btn btn-navy">취소</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{#로딩팝업#}
+<div class="loader">
+    <div class="loading_box">
+        <div class="loadingIcon"></div>
+    </div>
+</div>
+  <!-- js -->
+  <script>
+    $(".custom-file-input").each(function () {
+      $(this).on("change", function () {
+        var fileName = $(this).val().split('/').pop().split('\\').pop();
+        $(this).next().text(fileName);
+      })
+    })
+
+    $(document).on('click', '.list-item .btn-navy', function () {
+      $(".list-item .btn-navy").removeClass("active");
+      $(this).addClass("active");
+      $("#edit-area").addClass("active");
+    });
+  </script>
+  <script src="../../static/chatbot_v1_admin/js/index.js"></script>
+  <script src="../../static/chatbot_v1_admin/vendors/scripts/core.js"></script>
+  <script src="../../static/chatbot_v1_admin/vendors/scripts/script.min.js"></script>
+  <script src="../../static/chatbot_v1_admin/vendors/scripts/process.js"></script>
+  <script src="../../static/chatbot_v1_admin/vendors/scripts/layout-settings.js"></script>
+  <script src="../../static/chatbot_v1_admin/src/plugins/apexcharts/apexcharts.min.js"></script>
+  <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+  <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+  <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+  <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+  <script src="../../static/chatbot_v1_admin/vendors/scripts/dashboard3.js"></script>
+  <script>
+      //처음에는 버튼 클릭해주기
+      menu_index();
+  </script>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS" height="0" width="0"
+      style="display: none; visibility: hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+</body>
+
+</html>

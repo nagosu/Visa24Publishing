@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="author" content="chatbot_v1" />
+    <meta name="description" content="chatbot_v1" />
+
+    <!-- 오픈그래프 이미지의 경우 최소한 600 x 315 px은 되어야 하며, 1200 x 630 px을 권장함 -->
+    <meta property="og:image" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="" />
+    <!-- 다음의 태그는 필수는 아니지만, 포함하는 것을 추천함 -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <link rel="stylesheet" href="../../static/chatbot_v1/css/common.css" />
+    <script src="../../static/chatbot_v1/lib/jquery-1.12.4.js"></script>
+
+    <title>AI 챗봇</title>
+  </head>
+  <body>
+    <!-- chatDiv -->
+    <div class="chatDiv">
+      {% csrf_token %}
+
+      <!-- head -->
+      <div class="head">
+        {# <strong class="title">(주)엔디고 AI 챗봇</strong>#}
+        <strong class="title">AI 챗봇</strong>
+        {#op1. X 표시 닫기#} {#
+        <button type="button" class="btnChatClose">
+          #} {# <span class="hidden">챗 닫기</span>#} {#</button
+        >#}
+      </div>
+      <!-- //head -->
+
+      <!-- cont -->
+      <div class="cont">
+        <!-- inner -->
+        <div class="inner">
+          <div class="innerScroll">
+            <!-- commentGroup -->
+            <div class="commentGroup">
+              <div class="bot">
+                <span class="hidden">챗봇 프로필</span>
+              </div>
+
+              <div class="comments">
+                <div class="row">
+                  <p class="text">
+                    안녕하세요. AI 챗봇입니다. 아래 버튼에서 궁금한 카테고리를
+                    선택해주세요.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- //inner -->
+      </div>
+      <!-- //cont -->
+
+      <!-- bottom -->
+      <div class="bottom">
+        <!-- questionMenuArea -->
+        <div class="questionMenuArea">
+          <button type="button" class="btnQuestionUnFold" aria-expanded="false">
+            <span class="hidden">질문 리스트 펼치기</span>
+          </button>
+
+          <!-- inner -->
+          <div class="inner">
+            <ul class="questionMenuList">
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q1"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q2"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q3"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q4"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q5"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q6"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q7"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q8"></button>
+              </li>
+              <li>
+                <button type="button" class="btnQuestion" id="btn_q9"></button>
+              </li>
+            </ul>
+          </div>
+          <!-- //inner -->
+        </div>
+        <!-- //questionMenuArea -->
+
+        <!-- inputArea -->
+        <div class="inputArea">
+          <input
+            type="text"
+            placeholder="질문을 입력해 주세요."
+            id="message_user"
+          />
+          <button type="button" class="btnEnter" id="btn_send">
+            <span class="hidden">전송 버튼</span>
+          </button>
+        </div>
+        <!-- //inputArea -->
+      </div>
+      <!-- //bottom -->
+    </div>
+    <!-- //chatDiv -->
+    {# 히든, 채팅 히스토리 기록 및 건네기 #}
+    <input
+      type="hidden"
+      id="chat-history"
+      name="chat_history"
+      value="{{ chat_history }}"
+    />
+
+    <script src="../../static/chatbot_v1/js/ui.js"></script>
+    <script src="../../static/chatbot_v1/js/main.js"></script>
+  </body>
+</html>

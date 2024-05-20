@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic Page Info -->
+    <meta charset="utf-8" />
+    <title>Admin</title>
+
+    <!-- Mobile Specific Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/vendors/styles/core.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/vendors/styles/icon-font.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/src/plugins/datatables/css/dataTables.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/src/plugins/datatables/css/responsive.bootstrap4.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin/vendors/styles/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/chatbot_v1_admin//css/admin-style1.css"
+    />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-GBZ3SGGX85"
+    ></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2973766580778258"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-GBZ3SGGX85");
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NXZMQSS");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script src="../../static/chatbot_v1_admin/js/jquery-3.6.1.min.js"></script>
+  </head>
+
+  <body>
+    {% csrf_token %}
+    <div class="header">
+      <div class="header-left">
+        <div class="menu-icon bi bi-list"></div>
+        <div
+          class="search-toggle-icon bi bi-search"
+          data-toggle="header_search"
+        ></div>
+
+        <div class="title ttl-grp">
+          <h4 class="h4 mb-0">GPT 사용기록</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="left-side-bar">
+      <div class="menu-block customscroll">
+        <div class="sidebar-menu">
+          <ul id="accordion-menu">
+            <li>
+              <div class="sidebar-small-cap">MENU</div>
+            </li>
+            <li class="dropdown">
+              <a href="index" class="dropdown-toggle no-arrow">
+                <span class="micon bi bi-clipboard-plus"></span>
+                <span class="mtext">카테고리 편집</span>
+              </a>
+            </li>
+            {#
+            <li class="dropdown">
+              #} {#
+              <a href="menu01" class="dropdown-toggle no-arrow"
+                >#} {# <span class="micon bi bi-file-earmark-image"></span>#} {#
+                <span class="mtext">이미지 편집</span>#} {# </a
+              >#} {#
+            </li>
+            #}
+            <li class="dropdown">
+              <a href="menu02" class="dropdown-toggle no-arrow">
+                <span class="micon bi bi-table"></span>
+                <span class="mtext">GPT 사용기록</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu-overlay"></div>
+
+    <div class="main-container">
+      <div class="xs-pd-20-10 pd-ltr-20">
+        <div class="row">
+          <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="pd-20 card-box h100-card-box">
+              <div class="tbl-opt-bar">
+                <div class="tbl-opt-left">
+                  <div class="flex-item-group">
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        id="customRadio1"
+                        name="customRadio"
+                        class="custom-control-input"
+                        checked
+                      />
+                      <label class="custom-control-label" for="customRadio1"
+                        >최신순</label
+                      >
+                    </div>
+                    <div class="custom-control custom-radio">
+                      <input
+                        type="radio"
+                        id="customRadio2"
+                        name="customRadio"
+                        class="custom-control-input"
+                      />
+                      <label class="custom-control-label" for="customRadio2"
+                        >이름순</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="tbl-opt-right">
+                  <div class="flex-item-group">
+                    <select class="custom-select">
+                      <option value="Category Name">Category Name</option>
+                      <option value="GPT Version">GPT Version</option>
+                      <option value="User Message">User Message</option>
+                      <option value="Assistant Message">
+                        Assistant Message
+                      </option>
+                    </select>
+
+                    <div class="search-inp">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="텍스트 입력"
+                      />
+                      <button type="button" class="btn">
+                        <i class="icon-copy bi bi-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <table class="table mb-20">
+                <thead>
+                  <tr>
+                    <th scope="col">넘버</th>
+                    <th scope="col">생성날짜</th>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">GPT Version</th>
+                    <th scope="col">User Message</th>
+                    <th scope="col">Assistant Message</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+
+              <div class="pagination">
+                <div class="btn-toolbar justify-content-center mb-15">
+                  <div class="btn-group">
+                    <a href="#" class="btn btn-outline-primary prev"
+                      ><i class="fa fa-angle-double-left"></i
+                    ></a>
+                    <a href="#" class="btn btn-outline-primary active">1</a>
+                    <a href="#" class="btn btn-outline-primary">2</a>
+                    <a href="#" class="btn btn-outline-primary">3</a>
+                    <a href="#" class="btn btn-outline-primary">4</a>
+                    <a href="#" class="btn btn-outline-primary">5</a>
+                    <a href="#" class="btn btn-outline-primary next"
+                      ><i class="fa fa-angle-double-right"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- js -->
+    <script src="../../static/chatbot_v1_admin/js/menu02.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/core.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/script.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/process.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/layout-settings.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/apexcharts/apexcharts.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/dataTables.responsive.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+    <script src="../../static/chatbot_v1_admin/vendors/scripts/dashboard3.js"></script>
+    <script>
+      //처음에는 버튼 클릭해주기
+      menu_menu02();
+    </script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NXZMQSS"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  </body>
+</html>
