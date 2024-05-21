@@ -50,7 +50,21 @@ document.addEventListener("DOMContentLoaded", function () {
         showThirdStep();
       }
     }
+
+    if (
+      event.target.classList.contains("chat__reset-button") &&
+      event.target.classList.contains("home")
+    ) {
+      resetToInitial();
+    }
   });
+
+  // 채팅창 초기화 및 초기 메시지 표시
+  function resetToInitial() {
+    chatWrapper.innerHTML = ""; // 채팅창 내용 초기화
+    showInitialMessage(); // 최초 메시지 표시
+    chatContainer.scrollTop = chatContainer.scrollHeight; // 스크롤 맨 아래로 이동
+  }
 
   // 메시지 서버통신
   async function server_chat(userMessage) {
