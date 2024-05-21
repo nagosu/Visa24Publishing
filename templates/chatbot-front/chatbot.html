@@ -297,14 +297,28 @@
                       <button type="button" class="last-step__button">
                         <span>기타</span>
                       </button>
-                      <span
-                        >2. 출입국외국인청 신청 시 준비하셔야 할 첨부서류</span
-                      >
-                      <p>•여권</p>
-                      <p>•외국인등록증</p>
-                      <p>•특례고용가능확인서(고용노동부 발급)</p>
-                      <p>•표준근로계약서(고용노동부 발급)</p>
-                      <p>•사업자등록증</p>
+                      <div class="docsDiv">
+                        <span
+                          >2. 출입국외국인청 신청 시 준비하셔야 할
+                          첨부서류</span
+                        >
+                        <p>• 여권</p>
+                        <p>• 외국인등록증</p>
+                        <p>• 특례고용가능확인서(고용노동부 발급)</p>
+                        <p>• 표준근로계약서(고용노동부 발급)</p>
+                        <p>• 사업자등록증</p>
+                      </div>
+                      <div class="agentDiv">
+                        <span>3. 대행 신청</span>
+                        <span>• 서류 작성 신청</span>
+                        <p>- 양식 서류를 대신하여 작성해 드립니다.</p>
+                        <p>- (출입국에 본인 직접 접수)</p>
+                        <p>- 가격 : 3000원</p>
+                        <span>• 업무 대행 신청</span>
+                        <p>- 양식 서류를 대신 작성 및 접수해 드립니다.</p>
+                        <p>- (행성사 접수)</p>
+                        <p>- 가격(출입국 수수료 별도) : 10000원</p>
+                      </div>
                       <div class="button-container">
                         <button class="last-step__button">서류작성 신청</button>
                         <button class="last-step__button">업무대행 신청</button>
@@ -442,14 +456,28 @@
                       <button type="button" class="last-step__button">
                         <span>기타</span>
                       </button>
-                      <span
-                        >2. 출입국외국인청 신청 시 준비하셔야 할 첨부서류</span
-                      >
-                      <p>•여권</p>
-                      <p>•외국인등록증</p>
-                      <p>•특례고용가능확인서(고용노동부 발급)</p>
-                      <p>•표준근로계약서(고용노동부 발급)</p>
-                      <p>•사업자등록증</p>
+                      <div class="docsDiv">
+                        <span
+                          >2. 출입국외국인청 신청 시 준비하셔야 할
+                          첨부서류</span
+                        >
+                        <p>• 여권</p>
+                        <p>• 외국인등록증</p>
+                        <p>• 특례고용가능확인서(고용노동부 발급)</p>
+                        <p>• 표준근로계약서(고용노동부 발급)</p>
+                        <p>• 사업자등록증</p>
+                      </div>
+                      <div class="agentDiv">
+                        <span>3. 대행 신청</span>
+                        <span>• 서류 작성 신청</span>
+                        <p>- 양식 서류를 대신하여 작성해 드립니다.</p>
+                        <p>- (출입국에 본인 직접 접수)</p>
+                        <p>- 가격 : 3000원</p>
+                        <span>• 업무 대행 신청</span>
+                        <p>- 양식 서류를 대신 작성 및 접수해 드립니다.</p>
+                        <p>- (행성사 접수)</p>
+                        <p>- 가격(출입국 수수료 별도) : 10000원</p>
+                      </div>
                       <div class="button-container">
                         <button class="last-step__button abroad">
                           서류작성 신청
@@ -504,11 +532,11 @@
                         <span>*필수 입력</span>
                         <div class="chat__input">
                           <span>*여권상 성과 이름</span>
-                          <input type="text" />
+                          <input type="text" class="input-required" />
                         </div>
                         <div class="chat__input">
                           <span>*전화번호</span>
-                          <input type="text" />
+                          <input type="text" class="input-required" />
                         </div>
                       </div>
                       <!-- 선택 입력 -->
@@ -551,8 +579,10 @@
                   </div>
                   <!-- 취소/완료 버튼 -->
                   <div class="button-container">
-                    <button class="button-container__button">취소</button>
-                    <button class="button-container__button">완료</button>
+                    <button class="button-container__button cancel">
+                      취소
+                    </button>
+                    <button class="button-container__button done">완료</button>
                   </div>
                   <!-- 결제 -->
                   <div class="chat__text">

@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatSelectDoneButton = document.querySelectorAll(
     ".chat__select-done-button"
   );
+  const doneButton = document.querySelector(".button-container__button.done");
 
   // 시작 시 최초 접속 메시지 및 1단계 표시
   showInitialMessage();
@@ -424,5 +425,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // 음성인식 버튼 클릭 시 active
   voiceButton.addEventListener("click", function () {
     voiceButton.classList.toggle("active");
+  });
+
+  // 필수 개인정보 미입력 시 경고 메시지 표시
+  doneButton.addEventListener("click", function () {
+    const requiredInputs = document.querySelectorAll(".input-required");
+
+    requiredInputs.forEach((input) => {
+      if (input.value.trim() === "") {
+        input.placeholder = "필수 입력 개인정보입니다."; // placeholder 변경
+        input.classList.add("placeholder-red"); // 빨간색 placeholder 스타일 적용
+      }
+    });
   });
 });
