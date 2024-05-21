@@ -96,18 +96,22 @@
           </div>
         </div>
         <!-- 모달 창 -->
-        <div class="modal first">
-          <div class="modal-text">
-            수정한 SMS 메시지 내용을 저장하시겠습니까?
+        <div class="modal-background">
+          <div class="modal first">
+            <div class="modal-text">
+              수정한 SMS 메시지 내용을 저장하시겠습니까?
+            </div>
+            <div class="buttonDiv">
+              <button id="modalCancelButton">아니오</button>
+              <button id="modalSaveButton">저장</button>
+            </div>
           </div>
-          <div class="buttonDiv">
-            <button id="modalCancelButton">아니오</button>
-            <button id="modalSaveButton">저장</button>
+          <div class="modal second">
+            <div class="modal-text">
+              수정한 SMS 메시지 내용이 저장되었습니다.
+            </div>
+            <button id="modalConfirmButton">확인</button>
           </div>
-        </div>
-        <div class="modal second">
-          <div class="modal-text">수정한 SMS 메시지 내용이 저장되었습니다.</div>
-          <button id="modalConfirmButton">확인</button>
         </div>
       </section>
     </div>
