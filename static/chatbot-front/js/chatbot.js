@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ".chat__select-done-button"
   );
   const doneButton = document.querySelector(".button-container__button.done");
+  const editButton = document.querySelector(".edit-button__container button");
 
   // 시작 시 최초 접속 메시지 및 1단계 표시
   showInitialMessage();
@@ -17,14 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
   // 시작 시 채팅창 맨 아래로 이동
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
-  // 1단계, 2단계, 3단계 버튼 클릭 이벤트 처리
+  // 버튼 클릭 이벤트 처리
   document.addEventListener("click", function (event) {
+    // 1단계 버튼 클릭 시 2단계 표시
     if (event.target.classList.contains("first-step__button")) {
       const buttonText = event.target.textContent;
       sendMessage(buttonText);
       showSecondStep();
     }
 
+    // 2단계 버튼 클릭 시 3단계 표시
     if (event.target.classList.contains("chat__select-done-button")) {
       const parentSelect = event.target
         .closest(".chat__select")
@@ -52,12 +55,36 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    // 처음으로 버튼 클릭 시 1단계 표시
     if (
       event.target.classList.contains("chat__reset-button") &&
       event.target.classList.contains("home")
     ) {
       resetToInitial();
     }
+
+    if (event.target.closest(".edit-button__container button")) {
+      const chatSelect = event.target.closest(".chat__select");
+      const filledTexts = chatSelect.querySelectorAll(".filled-text");
+
+      filledTexts.forEach((span) => {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.value = span.textContent;
+        span.parentNode.replaceChild(input, span);
+      });
+    }
+
+    // "수정하기" 버튼의 텍스트를 "수정완료"로 변경
+    const editButton = event.target
+      .closest(".edit-button__container")
+      .querySelector("button");
+    editButton.innerHTML = `
+    수정완료<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 9L12 15L6 9" stroke="#fff" stroke-width="3"/>
+    </svg>
+    
+    `;
   });
 
   // 채팅창 초기화 및 초기 메시지 표시
