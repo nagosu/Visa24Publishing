@@ -15,11 +15,11 @@ document.addEventListener("DOMContentLoaded", function () {
       );
 
       if (isActive) {
-        statusOff.style.color = "#d4d4d4";
+        statusOff.style.color = "#a1a1a1";
         statusOn.style.color = "#1b3133";
       } else {
         statusOff.style.color = "#1b3133";
-        statusOn.style.color = "#d4d4d4";
+        statusOn.style.color = "#a1a1a1";
       }
     });
   });
