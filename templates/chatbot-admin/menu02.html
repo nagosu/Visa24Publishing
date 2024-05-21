@@ -487,9 +487,31 @@
             </div>
           </div>
           <!-- 모달 창 -->
-          <div class="modal">
-            <div class="modal-text">모든 카테고리를 선택해 주세요.</div>
-            <button id="modalConfirmButton">확인</button>
+          <div class="modal-background find">
+            <div class="modal">
+              <div class="modal-text">모든 카테고리를 선택해 주세요.</div>
+              <button id="modalConfirmButton">확인</button>
+            </div>
+          </div>
+          <div class="modal-background save">
+            <div class="modal">
+              <div class="modal-text">해당 내용을 저장 하시겠습니까?</div>
+              <div class="buttonDiv">
+                <button id="modalCancelButton">취소</button>
+                <button id="modalSaveButton">저장</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-background delete">
+            <div class="modal">
+              <div class="modal-text">선택한 항목을 삭제 하시겠습니까?</div>
+              <div class="buttonDiv">
+                <button id="modalCancelButton" class="delete-cancel">
+                  취소
+                </button>
+                <button id="modalSaveButton" class="delete-save">삭제</button>
+              </div>
+            </div>
           </div>
         </section>
       </div>
