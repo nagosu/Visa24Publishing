@@ -5,11 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const chatWrapper = document.querySelector(".chat__wrapper");
   const sendButton = document.querySelector(".send-button");
   const categorySelect = document.querySelectorAll(".category-dropdown-select");
-  const secondCategory = document.querySelector(
-    "category-dropdown-select.second"
-  );
-  const thirdCategory = document.querySelector(
-    "category-dropdown-select.third"
+  const warningText = document.querySelectorAll(".warning-text");
+  const chatSelectDoneButton = document.querySelectorAll(
+    ".chat__select-done-button"
   );
 
   // 시작 시 최초 접속 메시지 및 1단계 표시
@@ -22,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (event) {
     if (event.target.classList.contains("first-step__button")) {
       const buttonText = event.target.textContent;
-      console.log(buttonText);
       sendMessage(buttonText);
       showSecondStep();
     }
@@ -33,7 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
         .querySelector("select");
       const selectedValue = parentSelect.value;
 
-      console.log(selectedValue);
+      // 카테고리에 선택된 값이 없을 경우 1초간 빨간색으로 경고
+      if (selectedValue === "업무를 선택해 주세요") {
+        const warningText = event.target
+          .closest(".chat__select")
+          .querySelector(".warning-text");
+        warningText.style.color = "red";
+
+        setTimeout(() => {
+          warningText.style.color = "";
+        }, 1000);
+
+        return;
+      }
+
       sendMessage(selectedValue);
 
       if (event.target.id === "secondStepButton") {
@@ -219,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <!-- 카테고리 드롭다운 -->
                         <div class="category-dropdown">
                           <select
-                            id="categorySelect"
+                            id="categorySelectSecond"
                             class="category-dropdown-select second"
                           >
                             <option
@@ -252,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             />
                           </svg>
                         </div>
-                        <span>* 카테고리를 선택 후 입력해 주세요.</span>
+                        <span class="warning-text">* 카테고리를 선택 후 입력해 주세요.</span>
                       </div>
                       <button
                         class="chat__select-done-button"
@@ -337,8 +347,8 @@ document.addEventListener("DOMContentLoaded", function () {
       <!-- 카테고리 드롭다운 -->
       <div class="category-dropdown">
         <select
-          id="categorySelect"
-          class="category-dropdown-select"
+          id="categorySelectThird"
+          class="category-dropdown-select third"
         >
           <option
             value="업무를 선택해 주세요"
@@ -370,7 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
           />
         </svg>
       </div>
-      <span>* 카테고리를 선택 후 입력해 주세요.</span>
+      <span class="warning-text">* 카테고리를 선택 후 입력해 주세요.</span>
     </div>
     <button class="chat__select-done-button third">
       완료
@@ -401,11 +411,4 @@ document.addEventListener("DOMContentLoaded", function () {
   voiceButton.addEventListener("click", function () {
     voiceButton.classList.toggle("active");
   });
-
-  // 카테고리 선택 시 텍스트 색상 변경
-  // categorySelect.addEventListener("change", function () {
-  //   if (this.value !== "업무를 선택해 주세요") {
-  //     this.style.color = "#333";
-  //   }
-  // });
 });
