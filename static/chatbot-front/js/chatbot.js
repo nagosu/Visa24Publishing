@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   const inputBox = document.querySelector(".input-box");
   const voiceButton = document.querySelector(".voice-button");
+  const chatContainer = document.querySelector(".chat__container");
   const chatWrapper = document.querySelector(".chat__wrapper");
   const sendButton = document.querySelector(".send-button");
   const categorySelect = document.querySelectorAll(".category-dropdown-select");
-  const firstStepButtons = document.querySelectorAll(".first-step__button");
-  const secondStepButton = document.getElementById("secondStepButton");
-  const thirdStepButton = document.getElementById("thirdStepButton");
   const secondCategory = document.querySelector(
     "category-dropdown-select.second"
   );
@@ -14,38 +12,34 @@ document.addEventListener("DOMContentLoaded", function () {
     "category-dropdown-select.third"
   );
 
-  // 1단계 버튼에 클릭 이벤트 추가
-  firstStepButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      // 클릭한 버튼의 텍스트 가져오기
-      const buttonText = this.textContent;
-      // 메시지 전송
+  // 시작 시 최초 접속 메시지 및 1단계 표시
+  showInitialMessage();
+
+  // 시작 시 채팅창 맨 아래로 이동
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
+  // 1단계, 2단계, 3단계 버튼 클릭 이벤트 처리
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("first-step__button")) {
+      const buttonText = event.target.textContent;
+      console.log(buttonText);
       sendMessage(buttonText);
-
-      // 2단계 표시
       showSecondStep();
-    });
-  });
+    }
 
-  // 2단계 버튼에 클릭 이벤트 추가
-  secondStepButton.addEventListener("click", function () {
-    // 2단계에서 선택한 카테고리 값 가져오기
-    const selectedValue = categorySelect.value;
+    if (event.target.classList.contains("chat__select-done-button")) {
+      const parentSelect = event.target
+        .closest(".chat__select")
+        .querySelector("select");
+      const selectedValue = parentSelect.value;
 
-    // 메시지 전송
-    sendMessage(selectedValue);
+      console.log(selectedValue);
+      sendMessage(selectedValue);
 
-    // 3단계 표시
-    showThirdStep();
-  });
-
-  // 3단계 버튼에 클릭 이벤트 추가
-  thirdStepButton.addEventListener("click", function () {
-    // 3단계에서 선택한 카테고리 값 가져오기
-    const selectedValue = categorySelect.value;
-
-    // 메시지 전송
-    sendMessage(selectedValue);
+      if (event.target.id === "secondStepButton") {
+        showThirdStep();
+      }
+    }
   });
 
   // 메시지 서버통신
@@ -103,7 +97,96 @@ document.addEventListener("DOMContentLoaded", function () {
     inputBox.value = "";
 
     // 스크롤 맨 아래로 이동
-    chatWrapper.scrollTop = chatWrapper.scrollHeight;
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
+
+  // 최초 접속 메시지 표시하는 함수
+  function showInitialMessage() {
+    const chatChatbot = document.createElement("div");
+    chatChatbot.classList.add("chat__chatbot");
+
+    const chatTextContainer = document.createElement("div");
+    chatTextContainer.classList.add("chat__text-container");
+
+    const avatarImage = document.createElement("div");
+    avatarImage.innerHTML = `<img
+    src="../../static/chatbot-front/images/avatar.png"
+    alt="avatar"
+  />`;
+
+    const chatText = document.createElement("div");
+    chatText.classList.add("chat__text");
+    chatText.innerHTML = `<span
+    >VISA24입니다. 무엇을 도와드릴까요? 아래 비자 업무를
+    선택하거나 궁금한 사항을 입력해 주세요.</span
+  >`;
+
+    const firstStep = document.createElement("div");
+    firstStep.classList.add("chat__text");
+    firstStep.innerHTML = `
+    <div class="chat__select">
+                      <button type="button" class="first-step__button">
+                        VISA(국내)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(해외)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(관련)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(국적신청)
+                      </button>
+                    </div>
+    `;
+
+    chatChatbot.appendChild(avatarImage);
+    chatTextContainer.appendChild(chatText);
+    chatTextContainer.appendChild(firstStep);
+    chatChatbot.appendChild(chatTextContainer);
+    chatWrapper.appendChild(chatChatbot);
+  }
+
+  // 1단계를 표시하는 함수
+  function showFirstStep() {
+    const chatChatbot = document.createElement("div");
+    chatChatbot.classList.add("chat__chatbot");
+
+    const chatTextContainer = document.createElement("div");
+    chatTextContainer.classList.add("chat__text-container");
+
+    const avatarImage = document.createElement("div");
+    avatarImage.innerHTML = `
+    <img
+                  src="../../static/chatbot-front/images/avatar.png"
+                  alt="avatar"
+                />
+    `;
+
+    const firstStep = document.createElement("div");
+    firstStep.classList.add("chat__text");
+
+    firstStep.innerHTML = `
+    <div class="chat__select">
+                      <button type="button" class="first-step__button">
+                        VISA(국내)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(해외)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(관련)
+                      </button>
+                      <button type="button" class="first-step__button">
+                        VISA(국적신청)
+                      </button>
+                    </div>
+    `;
+
+    chatChatbot.appendChild(avatarImage);
+    chatTextContainer.appendChild(firstStep);
+    chatChatbot.appendChild(chatTextContainer);
+    chatWrapper.appendChild(chatChatbot);
   }
 
   // 2단계를 표시하는 함수
@@ -127,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const secondStep = document.createElement("div");
     secondStep.classList.add("chat__text");
     secondStep.innerHTML = `
+    <div class="chat__text">
                     <div class="chat__select">
                       <span class="chat__select-text"
                         >2단계 아래의 VISA 코드를 선택해 주세요.</span
@@ -136,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="category-dropdown">
                           <select
                             id="categorySelect"
-                            class="category-dropdown-select"
+                            class="category-dropdown-select second"
                           >
                             <option
                               value="업무를 선택해 주세요"
@@ -170,7 +254,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                         <span>* 카테고리를 선택 후 입력해 주세요.</span>
                       </div>
-                      <button class="chat__select-done-button">다음</button>
+                      <button
+                        class="chat__select-done-button"
+                        id="secondStepButton"
+                      >
+                        다음
+                      </button>
                     </div>
                   </div>
     `;
@@ -314,9 +403,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 카테고리 선택 시 텍스트 색상 변경
-  categorySelect.addEventListener("change", function () {
-    if (this.value !== "업무를 선택해 주세요") {
-      this.style.color = "#333";
-    }
-  });
+  // categorySelect.addEventListener("change", function () {
+  //   if (this.value !== "업무를 선택해 주세요") {
+  //     this.style.color = "#333";
+  //   }
+  // });
 });

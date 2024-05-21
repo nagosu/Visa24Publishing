@@ -153,14 +153,14 @@
 .chat__text {
   display: flex;
   border-radius: 0 10px 10px 10px;
-  max-width: 280px;
+  width: 280px;
   background-color: #b9ccf5;
   padding: 10px;
 }
 
 .chat__reset {
   display: flex;
-  max-width: 280px;
+  width: 280px;
   justify-content: center;
   align-items: center;
   gap: 15px;
@@ -206,7 +206,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 182px;
   height: 30px;
   border: 1px solid #333;
   border-radius: 8px;
@@ -429,10 +429,10 @@
 }
 
 .voice-button.active {
-  background: rgba(35, 40, 51, 0.06);
+  background: #ccc;
 }
 
-@keyframes spin {
+/* @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -450,4 +450,4 @@
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-}
+} */
