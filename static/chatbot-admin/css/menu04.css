@@ -293,3 +293,7 @@
 .agency__info-input-label.holder {
   margin-top: 3px;
 }
+
+.modal.second {
+  display: none;
+}
