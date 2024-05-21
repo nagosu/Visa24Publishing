@@ -507,6 +507,10 @@ img {
   padding: 0 16px;
 }
 
+.usage-history__table-item img {
+  cursor: pointer;
+}
+
 .modal-background {
   display: none;
   position: fixed;

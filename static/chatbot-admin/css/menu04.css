@@ -167,3 +167,129 @@
   appearance: none;
   user-select: none;
 }
+
+.company-management__button-edit.done {
+  background-color: #1b3133;
+}
+
+.company-management__button-edit.done span {
+  color: #fff;
+}
+
+.agency__info-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  height: 400px;
+  padding: 24px;
+  margin-top: 10px;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.agency__info-input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.agency__info-input-wrapper.head {
+  justify-content: center;
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.agency__info-input-wrapper.head span {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.agency__info-input-wrapper.secondary,
+.agency__info-input-wrapper.tertiary {
+  margin-top: 40px;
+}
+
+.agency__info-input-wrapper.tertiary {
+  height: 80px;
+}
+
+.agency__info-input-wrapper.fourth {
+  justify-content: flex-end;
+  height: 40px;
+}
+
+.agency__info-input-wrapper.fourth button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #1b3133;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #fff;
+}
+
+.agency__info-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 310px;
+  height: 30px;
+}
+
+.agency__info-input-label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1b3133;
+  width: 70px;
+  margin-right: 10px;
+}
+
+.agency__info-input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 30px;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 0 10px;
+  outline: none;
+}
+
+.agency__info-account-input-wrapper {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.agency__info-input.account {
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+}
+
+.agency__info-input.holder {
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+}
+
+.agency__info-input-label.account,
+.agency__info-input-label.holder {
+  margin-top: 3px;
+}
