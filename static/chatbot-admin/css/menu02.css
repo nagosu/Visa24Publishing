@@ -422,3 +422,22 @@
   background-color: #000;
   color: #fff;
 }
+
+.extra-button {
+  width: 80px;
+  height: 20px;
+  cursor: pointer;
+  background-color: #fff !important;
+  color: #1b3133 !important;
+  border: 1px solid #1b3133 !important;
+}
+
+.upload-button {
+  width: 70px;
+  height: 20px;
+  border: 1px solid #1b3133 !important;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: #fff !important;
+  color: #1b3133 !important;
+}
