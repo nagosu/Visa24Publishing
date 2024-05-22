@@ -85,7 +85,78 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
-
   addPencilClickListener("pencil-docs");
   addPencilClickListener("pencil-agency");
+
+  // 체크박스 전체 선택/해제 기능 추가
+  function addCheckboxToggleListener(tableClass) {
+    const table = document.querySelector(`.${tableClass}`);
+    const theadCheckbox = table.querySelector("thead input[type='checkbox']");
+    const tbodyCheckboxes = table.querySelectorAll(
+      "tbody input[type='checkbox']"
+    );
+    const selectContent = table.nextElementSibling;
+    const selectContentText = selectContent.querySelector(
+      ".select-content-text"
+    );
+
+    theadCheckbox.addEventListener("change", function () {
+      const isChecked = theadCheckbox.checked;
+      tbodyCheckboxes.forEach((checkbox) => {
+        checkbox.checked = isChecked;
+      });
+      updateSelectContent();
+    });
+
+    tbodyCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", function () {
+        const allChecked = Array.from(tbodyCheckboxes).every(
+          (checkbox) => checkbox.checked
+        );
+        theadCheckbox.checked = allChecked;
+        updateSelectContent();
+      });
+    });
+
+    function updateSelectContent() {
+      const checkedCount = Array.from(tbodyCheckboxes).filter(
+        (checkbox) => checkbox.checked
+      ).length;
+      if (checkedCount > 0) {
+        selectContentText.textContent = `총 ${checkedCount}개의 항목이 선택되었습니다.`;
+        selectContent.style.display = "flex";
+      } else {
+        selectContent.style.display = "none";
+      }
+    }
+
+    // 해제 버튼 클릭 시
+    selectContent
+      .querySelector(".deselect-button")
+      .addEventListener("click", function () {
+        tbodyCheckboxes.forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+        theadCheckbox.checked = false;
+        updateSelectContent();
+      });
+
+    // 삭제 버튼 클릭 시 (삭제 모달 창 열기)
+    selectContent
+      .querySelector(".delete-button")
+      .addEventListener("click", function () {
+        const modalDelete = document.querySelector(".modal-background.delete");
+        modalDelete.style.display = "flex";
+      });
+
+    // 다운로드 버튼 클릭 시 (기능 추가 해야함)
+    selectContent
+      .querySelector(".download-button")
+      .addEventListener("click", function () {
+        console.log("다운로드 버튼 클릭됨");
+      });
+  }
+
+  addCheckboxToggleListener("usage-history__table.form");
+  addCheckboxToggleListener("usage-history__table.attach");
 });

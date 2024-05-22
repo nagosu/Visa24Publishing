@@ -128,6 +128,7 @@
   border-radius: 10px 0 10px 10px;
   max-width: 280px;
   background-color: #13b256;
+  color: #fff;
   padding: 10px;
 }
 
@@ -213,12 +214,16 @@
   align-items: center;
   width: 182px;
   height: 30px;
-  border: 1px solid #333;
   border-radius: 8px;
-  background-color: #fff;
+  border: 1px solid #4e5784;
+  background-color: #4e5784;
   font-size: 13px;
-  color: #333;
+  color: #f5fef9;
   cursor: pointer;
+
+  &:hover {
+    background-color: #3c4366;
+  }
 }
 
 .chat__select-text {
@@ -450,6 +455,19 @@
   font-weight: 600;
   background-color: #000;
   color: #fff;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+
+    .info-edit-icon path {
+      fill: #000;
+    }
+
+    .info-down-arrow path {
+      stroke: #000;
+    }
+  }
 }
 
 .voice-button {
@@ -480,7 +498,7 @@
   background: #ccc;
 }
 
-/* @keyframes spin {
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -498,4 +516,9 @@
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-} */
+}
+
+.chat__select.task button {
+  height: auto;
+  padding: 10px;
+}

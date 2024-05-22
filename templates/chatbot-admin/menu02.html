@@ -3,6 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="../../static/chatbot-admin/css/common.css" />
     <link rel="stylesheet" href="../../static/chatbot-admin/css/common.css" />
     <link rel="stylesheet" href="../../static/chatbot-admin/css/menu02.css" />
     <title>컨텐츠 수정</title>
@@ -276,145 +287,161 @@
               <div class="content-modify__form-doc-container">
                 <span class="content-modify__form-doc-title">양식서류</span>
                 <!-- 양식서류 테이블 -->
-                <table class="usage-history__table form">
-                  <thead class="usage-history__table-header">
-                    <tr class="usage-history__table-container">
-                      <th
-                        class="usage-history__table-item usage-history__table-item--checkbox"
-                      >
-                        ☐
-                      </th>
-                      <th
-                        class="usage-history__table-item usage-history__table-item--list"
-                      >
-                        목록
-                      </th>
-                      <th
-                        class="usage-history__table-item usage-history__table-item--docs"
-                      >
-                        양식 파일
-                      </th>
-                      <th
-                        class="usage-history__table-item usage-history__table-item--status"
-                      >
-                        상태
-                      </th>
-                      <th
-                        class="usage-history__table-item usage-history__table-item--delete"
-                      >
-                        삭제
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="usage-history__table-data">
-                    <tr class="usage-history__table-container">
-                      <td
-                        class="usage-history__table-item usage-history__table-item--checkbox"
-                      >
-                        <input type="checkbox" />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--list"
-                      >
-                        사증발급 신청서<img
-                          src="../../static/chatbot-admin/images/refresh.svg"
-                        />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--docs"
-                      >
-                        사증발급 신청서.docs
-                        <img
-                          src="../../static/chatbot-admin/images/Check_fill.svg"
-                        />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--status"
-                      >
-                        다운 허용
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--delete"
-                      >
-                        <img
-                          src="../../static/chatbot-admin/images/Trash.svg"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                  <tbody class="usage-history__table-data">
-                    <tr class="usage-history__table-container">
-                      <td
-                        class="usage-history__table-item usage-history__table-item--checkbox"
-                      >
-                        <input type="checkbox" />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--list"
-                      >
-                        사증발급 신청서<img
-                          src="../../static/chatbot-admin/images/refresh.svg"
-                        />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--docs"
-                      >
-                        사증발급 신청서.docs
-                        <img
-                          src="../../static/chatbot-admin/images/Check_fill.svg"
-                        />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--status"
-                      >
-                        다운 허용
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--delete"
-                      >
-                        <img
-                          src="../../static/chatbot-admin/images/Trash.svg"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                  <tbody class="usage-history__table-data">
-                    <tr class="usage-history__table-container">
-                      <td
-                        class="usage-history__table-item usage-history__table-item--checkbox"
-                      >
-                        <input type="checkbox" />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--list"
-                      >
-                        사증발급 신청서<img
-                          src="../../static/chatbot-admin/images/refresh.svg"
-                        />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--docs"
-                      >
-                        사증발급 신청서.docs
-                        <img
-                          src="../../static/chatbot-admin/images/Check_fill.svg"
-                        />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--status"
-                      >
-                        다운 허용
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--delete"
-                      >
-                        <img
-                          src="../../static/chatbot-admin/images/Trash.svg"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="form-table-container">
+                  <table class="usage-history__table form">
+                    <thead class="usage-history__table-header">
+                      <tr class="usage-history__table-container">
+                        <th
+                          class="usage-history__table-item usage-history__table-item--checkbox"
+                        >
+                          <input type="checkbox" />
+                        </th>
+                        <th
+                          class="usage-history__table-item usage-history__table-item--list"
+                        >
+                          목록
+                        </th>
+                        <th
+                          class="usage-history__table-item usage-history__table-item--docs"
+                        >
+                          양식 파일
+                        </th>
+                        <th
+                          class="usage-history__table-item usage-history__table-item--status"
+                        >
+                          상태
+                        </th>
+                        <th
+                          class="usage-history__table-item usage-history__table-item--delete"
+                        >
+                          삭제
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="usage-history__table-data">
+                      <tr class="usage-history__table-container">
+                        <td
+                          class="usage-history__table-item usage-history__table-item--checkbox"
+                        >
+                          <input type="checkbox" />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--list"
+                        >
+                          사증발급 신청서<img
+                            src="../../static/chatbot-admin/images/refresh.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--docs"
+                        >
+                          사증발급 신청서.docs
+                          <img
+                            src="../../static/chatbot-admin/images/Check_fill.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--status"
+                        >
+                          다운 허용<img
+                            src="../../static/chatbot-admin/images/refresh.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--delete"
+                        >
+                          <img
+                            src="../../static/chatbot-admin/images/Trash.svg"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody class="usage-history__table-data">
+                      <tr class="usage-history__table-container">
+                        <td
+                          class="usage-history__table-item usage-history__table-item--checkbox"
+                        >
+                          <input type="checkbox" />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--list"
+                        >
+                          사증발급 신청서<img
+                            src="../../static/chatbot-admin/images/refresh.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--docs"
+                        >
+                          사증발급 신청서.docs
+                          <img
+                            src="../../static/chatbot-admin/images/Check_fill.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--status"
+                        >
+                          다운 허용<img
+                            src="../../static/chatbot-admin/images/refresh.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--delete"
+                        >
+                          <img
+                            src="../../static/chatbot-admin/images/Trash.svg"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tbody class="usage-history__table-data">
+                      <tr class="usage-history__table-container">
+                        <td
+                          class="usage-history__table-item usage-history__table-item--checkbox"
+                        >
+                          <input type="checkbox" />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--list"
+                        >
+                          사증발급 신청서<img
+                            src="../../static/chatbot-admin/images/refresh.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--docs"
+                        >
+                          사증발급 신청서.docs
+                          <img
+                            src="../../static/chatbot-admin/images/Check_fill.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--status"
+                        >
+                          다운 허용<img
+                            src="../../static/chatbot-admin/images/refresh.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--delete"
+                        >
+                          <img
+                            src="../../static/chatbot-admin/images/Trash.svg"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="select-content">
+                    <span class="select-content-text"></span>
+                    <div class="select-content-button">
+                      <button class="deselect-button">해제</button>
+                      <button class="download-button">다운</button>
+                      <button class="delete-button">삭제</button>
+                    </div>
+                  </div>
+                </div>
                 <!-- 목록 추가 -->
                 <div class="content-modify__add-list-container">
                   <span class="content-modify__add-list-title">목록 추가</span>
@@ -430,48 +457,59 @@
               <div class="content-modify__attach-doc-container">
                 <span class="content-modify__attach-doc-title">첨부서류</span>
                 <!-- 첨부서류 테이블 -->
-                <table class="usage-history__table attach">
-                  <thead class="usage-history__table-header">
-                    <tr class="usage-history__table-container">
-                      <th
-                        class="usage-history__table-item usage-history__table-item--checkbox"
-                      >
-                        ☐
-                      </th>
-                      <th
-                        class="usage-history__table-item usage-history__table-item--list attach"
-                      >
-                        목록
-                      </th>
-                      <th
-                        class="usage-history__table-item usage-history__table-item--delete attach"
-                      >
-                        삭제
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="usage-history__table-data">
-                    <tr class="usage-history__table-container">
-                      <td
-                        class="usage-history__table-item usage-history__table-item--checkbox"
-                      >
-                        <input type="checkbox" />
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--list attach"
-                      >
-                        사증발급 신청서
-                      </td>
-                      <td
-                        class="usage-history__table-item usage-history__table-item--delete attach"
-                      >
-                        <img
-                          src="../../static/chatbot-admin/images/Trash.svg"
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="attach-table-container">
+                  <table class="usage-history__table attach">
+                    <thead class="usage-history__table-header">
+                      <tr class="usage-history__table-container">
+                        <th
+                          class="usage-history__table-item usage-history__table-item--checkbox"
+                        >
+                          <input type="checkbox" />
+                        </th>
+                        <th
+                          class="usage-history__table-item usage-history__table-item--list attach"
+                        >
+                          목록
+                        </th>
+                        <th
+                          class="usage-history__table-item usage-history__table-item--delete attach"
+                        >
+                          삭제
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="usage-history__table-data">
+                      <tr class="usage-history__table-container">
+                        <td
+                          class="usage-history__table-item usage-history__table-item--checkbox"
+                        >
+                          <input type="checkbox" />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--list attach-data"
+                        >
+                          사증발급 신청서<img
+                            src="../../static/chatbot-admin/images/refresh.svg"
+                          />
+                        </td>
+                        <td
+                          class="usage-history__table-item usage-history__table-item--delete attach"
+                        >
+                          <img
+                            src="../../static/chatbot-admin/images/Trash.svg"
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="select-content">
+                    <span class="select-content-text"></span>
+                    <div class="select-content-button">
+                      <button class="deselect-button">해제</button>
+                      <button class="delete-button">삭제</button>
+                    </div>
+                  </div>
+                </div>
                 <div class="content-modify__add-list-container">
                   <span class="content-modify__add-list-title">목록 추가</span>
                   <input

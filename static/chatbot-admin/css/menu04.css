@@ -85,6 +85,20 @@
   border: 1px solid #1b3133;
   border-radius: 8px;
   background: #fff;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  &:hover {
+    background-color: #1b3133;
+
+    span {
+      color: #fff;
+    }
+
+    svg path {
+      fill: #fff;
+    }
+  }
 }
 
 .company-management__button-edit-text {
@@ -113,6 +127,21 @@
   border: 1px solid #1b3133;
   border-radius: 8px;
   background: #fff;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    background-color: #1b3133;
+
+    span {
+      color: #fff;
+    }
+
+    svg path {
+      stroke: #fff;
+    }
+  }
 }
 
 .company-management__button-add-text {

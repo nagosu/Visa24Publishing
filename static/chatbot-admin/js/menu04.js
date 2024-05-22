@@ -12,13 +12,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  let deletedRows = [];
+
   // 테이블 편집 버튼 클릭 이벤트 추가
+  let editMode = false;
   const editButton = document.querySelector(".company-management__button-edit");
   editButton.addEventListener("click", function () {
     const tableHeader = document.querySelector(".usage-history__table-header");
     const tableDataRows = document.querySelectorAll(
       ".usage-history__table-data"
     );
+
+    if (editMode) {
+      // 완료 버튼 클릭 시 원래 상태로 되돌리기
+      location.reload(); // 페이지 새로고침으로 원래 상태 복구
+      return;
+    }
 
     // 테이블 헤더 변경
     tableHeader.innerHTML = `
@@ -72,12 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // 버튼을 "완료" 버튼으로 변경
-    editButton.outerHTML = `
-      <button class="company-management__button-edit done">
-        <span class="company-management__button-edit-text">완료</span>
-        <img src="../../static/chatbot-admin/images/white-pencil.svg" />
-      </button>
+    editButton.innerHTML = `
+      <span class="company-management__button-edit-text">완료</span>
+      <img src="../../static/chatbot-admin/images/white-pencil.svg" />
     `;
+    editButton.classList.add("done");
+
+    editMode = true;
 
     // Edit 아이콘 클릭 이벤트 추가
     const editIcons = document.querySelectorAll(".edit-icon img");
@@ -120,19 +130,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalSaveButton = document.getElementById("modalSaveButton");
   const modalCancelButton = document.getElementById("modalCancelButton");
   const modalConfirmButton = document.getElementById("modalConfirmButton");
+  let currentRow; // 현재 선택된 row를 저장하기 위한 변수
 
   // 이벤트 위임을 사용하여 agencyDelete 클래스의 클릭 이벤트 처리
   document.body.addEventListener("click", function (event) {
     if (event.target.classList.contains("agency-delete")) {
+      const row = event.target.closest("tr");
+      const companyName = row.querySelector(
+        ".usage-history__table-item--company"
+      ).innerText;
+      modalFirst.querySelector(
+        ".modal-text"
+      ).innerText = `정말 ${companyName} 업체의 정보를 삭제하시겠습니까?`;
+      modalSecond.querySelector(
+        ".modal-text"
+      ).innerText = `${companyName}의 정보 삭제가 완료되었습니다.`;
       modalBackground.style.display = "flex";
       modalFirst.style.display = "flex";
+      currentRow = row; // 현재 선택된 row 저장
     }
   });
 
-  // 저장 버튼 클릭 시 첫 번째 모달 닫고 두 번째 모달 열기
+  // 저장 버튼 클릭 시 첫 번째 모달 닫고 두 번째 모달 열기 및 row 삭제
   modalSaveButton.addEventListener("click", function () {
     modalFirst.style.display = "none";
     modalSecond.style.display = "flex";
+    if (currentRow) {
+      deletedRows.push(currentRow); // 삭제된 row 저장
+      currentRow.remove(); // 현재 선택된 row 삭제
+      currentRow = null; // 현재 선택된 row 초기화
+    }
   });
 
   // 확인 버튼 클릭 시 두 번째 모달 창 닫기

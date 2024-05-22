@@ -23,4 +23,21 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  // 저장 버튼 클릭 시 모달 창 열기
+  const saveButton = document.querySelector(".agency__info-save-button");
+  const modalSave = document.querySelector(".modal-background.save");
+  saveButton.addEventListener("click", function () {
+    modalSave.style.display = "flex";
+  });
+
+  // 취소/확인 버튼 클릭 시 모달 창 닫기
+  const modalCancelButton = document.getElementById("modalCancelButton");
+  const modalSaveButton = document.getElementById("modalSaveButton");
+  modalCancelButton.addEventListener("click", function () {
+    modalSave.style.display = "none";
+  });
+  modalSaveButton.addEventListener("click", function () {
+    modalSave.style.display = "none";
+  });
 });

@@ -170,7 +170,7 @@ img {
   height: 100%;
   z-index: 1000;
   background: #142127;
-  padding: 35px 20px;
+  padding: 30px 12px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -179,7 +179,7 @@ img {
 
 .navbar__title {
   display: flex;
-  width: 100%;
+  width: auto;
   height: auto;
   padding-left: 10px;
   justify-content: flex-start;
@@ -188,9 +188,10 @@ img {
 
 .navbar__title-text {
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.05em;
+  padding: 5px 5px;
   text-transform: uppercase;
   user-select: none;
 }
@@ -202,6 +203,7 @@ img {
   height: auto;
   flex-direction: column;
   align-items: center;
+  gap: 5px;
 }
 
 .navbar__menu-item {
@@ -218,16 +220,23 @@ img {
   }
 }
 
+.navbar__menu-item--active {
+  background: rgba(236, 240, 244, 0.19);
+}
+
 .navbar__menu-item-text {
   color: #fff;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.05em;
   user-select: none;
+  white-space: nowrap;
+  letter-spacing: 0;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 .navbar__menu-item--active span {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .content {
@@ -504,7 +513,7 @@ img {
   font-size: 14px;
   font-weight: 600;
   text-align: center;
-  padding: 0 16px;
+  padding: 0 5px;
 }
 
 .usage-history__table-item img {
@@ -528,20 +537,35 @@ img {
   display: flex;
   flex-direction: column;
   background-color: #fff;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 230px;
   text-align: center;
+  animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .modal-text {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
   padding: 30px;
   width: 100%;
-  height: 150px;
+  height: 180px;
 }
 
 .buttonDiv {
@@ -550,7 +574,6 @@ img {
   align-items: center;
   width: 100%;
   height: 50px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -562,7 +585,7 @@ img {
   width: 100%;
   height: 50px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #1b00ff;
   color: white;
   border: none;
   cursor: pointer;
@@ -575,21 +598,25 @@ img {
 
 #modalCancelButton,
 #modalSaveButton {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   width: 50%;
   height: 50px;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #1b00ff;
   color: white;
   border: none;
   cursor: pointer;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #0071e9;
   }
+}
+
+#modalCancelButton {
+  border-right: 1px solid #0071e9;
 }
 
 .pencil-docs,

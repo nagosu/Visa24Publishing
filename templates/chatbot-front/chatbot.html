@@ -26,6 +26,7 @@
         <div class="content__container">
           <div class="chat__container">
             <div class="chat__wrapper">
+              <!-- 챗봇 채팅 -->
               <div class="chat__chatbot">
                 <img
                   src="../../static/chatbot-front/images/avatar.png"
@@ -575,14 +576,16 @@
                           <input type="text" />
                         </div>
                       </div>
+                      <!-- 취소/완료 버튼 -->
+                      <div class="button-container">
+                        <button class="button-container__button cancel">
+                          취소
+                        </button>
+                        <button class="button-container__button done">
+                          완료
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <!-- 취소/완료 버튼 -->
-                  <div class="button-container">
-                    <button class="button-container__button cancel">
-                      취소
-                    </button>
-                    <button class="button-container__button done">완료</button>
                   </div>
                   <!-- 개인정보 입력완료 -->
                   <div class="chat__text">
@@ -595,6 +598,7 @@
                       <div class="edit-button__container">
                         <button>
                           수정하기<svg
+                            class="info-edit-icon"
                             width="14"
                             height="14"
                             viewBox="0 0 24 24"
@@ -661,16 +665,16 @@
                       <span
                         >입력하신 정보로 서류작성 신청을 진행하시겠습니까?</span
                       >
+                      <!-- 취소/신청 진행 버튼 -->
+                      <div class="button-container">
+                        <button class="button-container__button cancel">
+                          취소
+                        </button>
+                        <button class="button-container__button continue">
+                          신청 진행
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <!-- 취소/신청 진행 버튼 -->
-                  <div class="button-container">
-                    <button class="button-container__button cancel">
-                      취소
-                    </button>
-                    <button class="button-container__button continue">
-                      신청 진행
-                    </button>
                   </div>
                   <!-- 결제 -->
                   <div class="chat__text">
@@ -778,6 +782,20 @@
                         />
                       </svg>
                     </button>
+                  </div>
+                  <!-- 좋은 예시 -->
+                  <div class="chat__text">
+                    <div class="chat__select task">
+                      <span>아래 업무를 선택해주세요.</span>
+                      <button>
+                        사증신청*방문동거F-1(SOFA 해당자의 21세이상 동반자녀
+                        또는 기타가족)
+                      </button>
+                      <button>
+                        사증신청*방문동거F-1-5 (자녀양육지원등의 결혼이민자 의
+                        부모,가족)
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
