@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  let deletedRows = [];
+  let deletedRows = []; // 삭제된 행을 저장하기 위한 배열
 
   // 테이블 편집 버튼 클릭 이벤트 추가
   let editMode = false;
@@ -91,13 +91,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Edit 아이콘 클릭 이벤트 추가
     const editIcons = document.querySelectorAll(".edit-icon img");
-    const modal = document.querySelector(".modal-background");
+    const modal = document.querySelector(".modal-background.edit");
+    const modalInputCompany = modal.querySelector(
+      ".agency__info-input.company input"
+    );
+    const modalInputRepresentative = modal.querySelector(
+      ".agency__info-input.representative input"
+    );
+    const modalInputPhone = modal.querySelector(
+      ".agency__info-input.phone input"
+    );
+    const modalInputEmail = modal.querySelector(
+      ".agency__info-input.email input"
+    );
+    const modalInputAccount = modal.querySelector(
+      ".agency__info-input.account input:nth-child(2)"
+    );
+    const modalInputHolder = modal.querySelector(
+      ".agency__info-input.holder input"
+    );
+    let currentRow; // 현재 선택된 row를 저장하기 위한 변수
 
     editIcons.forEach((icon) => {
       icon.addEventListener("click", function () {
+        currentRow = this.closest("tr"); // 현재 클릭된 row 저장
+        const cells = currentRow.querySelectorAll(".usage-history__table-item");
+
+        // 모달 input 필드에 현재 row의 데이터 채우기
+        modalInputCompany.value = cells[2].innerText;
+        modalInputRepresentative.value = cells[3].innerText;
+        modalInputPhone.value = cells[4].innerText;
+        modalInputEmail.value = cells[5].innerText;
+        modalInputAccount.value = cells[6].innerText;
+        modalInputHolder.value = cells[7].innerText;
+
         // 모달을 표시
         modal.style.display = "flex";
       });
+    });
+
+    // "등록하기" 버튼 클릭 이벤트 추가 (모달 닫기 및 데이터 업데이트 기능 포함)
+    const saveButtonEdit = modal.querySelector(
+      ".agency__info-input-wrapper.fourth button"
+    );
+    saveButtonEdit.addEventListener("click", function () {
+      // 현재 row의 데이터 업데이트
+      const cells = currentRow.querySelectorAll(".usage-history__table-item");
+      cells[2].innerText = modalInputCompany.value;
+      cells[3].innerText = modalInputRepresentative.value;
+      cells[4].innerText = modalInputPhone.value;
+      cells[5].innerText = modalInputEmail.value;
+      cells[6].innerText = modalInputAccount.value;
+      cells[7].innerText = modalInputHolder.value;
+
+      // 모달을 닫기
+      modal.style.display = "none";
     });
   });
 
@@ -108,6 +156,97 @@ document.addEventListener("DOMContentLoaded", function () {
   addButton.addEventListener("click", function () {
     // 모달을 표시
     modalAdd.style.display = "flex";
+  });
+
+  // 추가 모달에서 등록 버튼 클릭 시 테이블에 행 추가
+  const saveButtonAdd = modalAdd.querySelector(
+    ".agency__info-input-wrapper.fourth button"
+  );
+  saveButtonAdd.addEventListener("click", function () {
+    const company = modalAdd.querySelector(
+      ".agency__info-input.company input"
+    ).value;
+    const representative = modalAdd.querySelector(
+      ".agency__info-input.representative input"
+    ).value;
+    const phone = modalAdd.querySelector(
+      ".agency__info-input.phone input"
+    ).value;
+    const email = modalAdd.querySelector(
+      ".agency__info-input.email input"
+    ).value;
+    const account = modalAdd.querySelector(
+      ".agency__info-input.account input:nth-child(2)"
+    ).value;
+    const holder = modalAdd.querySelector(
+      ".agency__info-input.holder input"
+    ).value;
+
+    const newRow = document.createElement("tr");
+    newRow.classList.add("usage-history__table-container");
+    newRow.innerHTML = `
+      <tr class="usage-history__table-container">
+        <th class="usage-history__table-item usage-history__table-item--no">
+          <img src="../../static/chatbot-admin/images/Fluid.svg" />
+        </th>
+        <td class="usage-history__table-item usage-history__table-item--no"></td>
+        <td class="usage-history__table-item usage-history__table-item--company">${company}</td>
+        <td class="usage-history__table-item usage-history__table-item--representative">${representative}</td>
+        <td class="usage-history__table-item usage-history__table-item--phone">${phone}</td>
+        <td class="usage-history__table-item usage-history__table-item--email">${email}</td>
+        <td class="usage-history__table-item usage-history__table-item--account">${account}</td>
+        <td class="usage-history__table-item usage-history__table-item--holder">${holder}</td>
+        <th class="usage-history__table-item usage-history__table-item--no edit-icon">
+          <img src="../../static/chatbot-admin/images/Edit_fill.svg" />
+        </th>
+        <th class="usage-history__table-item usage-history__table-item--no delete-icon">
+          <img src="../../static/chatbot-admin/images/Trash.svg" class="agency-delete"/>
+        </th>
+      </tr>
+    `;
+
+    document.querySelector(".usage-history__table tbody").appendChild(newRow);
+
+    // 추가된 행의 Edit 아이콘 클릭 이벤트 추가
+    newRow
+      .querySelector(".edit-icon img")
+      .addEventListener("click", function () {
+        currentRow = this.closest("tr"); // 현재 클릭된 row 저장
+        const cells = currentRow.querySelectorAll(".usage-history__table-item");
+
+        // 모달 input 필드에 현재 row의 데이터 채우기
+        modalInputCompany.value = cells[2].innerText;
+        modalInputRepresentative.value = cells[3].innerText;
+        modalInputPhone.value = cells[4].innerText;
+        modalInputEmail.value = cells[5].innerText;
+        modalInputAccount.value = cells[6].innerText;
+        modalInputHolder.value = cells[7].innerText;
+
+        // 모달을 표시
+        modal.style.display = "flex";
+      });
+
+    // 추가된 행의 삭제 아이콘 클릭 이벤트 추가
+    newRow
+      .querySelector(".delete-icon img")
+      .addEventListener("click", function () {
+        const row = this.closest("tr");
+        const companyName = row.querySelector(
+          ".usage-history__table-item--company"
+        ).innerText;
+        modalFirst.querySelector(
+          ".modal-text"
+        ).innerText = `정말 ${companyName} 업체의 정보를 삭제하시겠습니까?`;
+        modalSecond.querySelector(
+          ".modal-text"
+        ).innerText = `${companyName}의 정보 삭제가 완료되었습니다.`;
+        modalBackground.style.display = "flex";
+        modalFirst.style.display = "flex";
+        currentRow = row; // 현재 선택된 row 저장
+      });
+
+    // 모달을 닫기
+    modalAdd.style.display = "none";
   });
 
   // 저장 버튼 클릭 이벤트 추가 (모달 닫기 기능 포함)
@@ -132,7 +271,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalConfirmButton = document.getElementById("modalConfirmButton");
   let currentRow; // 현재 선택된 row를 저장하기 위한 변수
 
-  // 이벤트 위임을 사용하여 agencyDelete 클래스의 클릭 이벤트 처리
   document.body.addEventListener("click", function (event) {
     if (event.target.classList.contains("agency-delete")) {
       const row = event.target.closest("tr");
