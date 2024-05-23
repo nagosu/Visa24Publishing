@@ -220,9 +220,10 @@
   font-size: 13px;
   color: #f5fef9;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   &:hover {
-    background-color: #3c4366;
+    background-color: #727cac;
   }
 }
 

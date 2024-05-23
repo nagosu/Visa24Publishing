@@ -88,9 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 채팅창 초기화 및 초기 메시지 표시
   function resetToInitial() {
-    chatWrapper.innerHTML = ""; // 채팅창 내용 초기화
-    showInitialMessage(); // 최초 메시지 표시
-    chatContainer.scrollTop = chatContainer.scrollHeight; // 스크롤 맨 아래로 이동
+    chatContainer.scrollTo(0, 0);
   }
 
   // 메시지 서버통신

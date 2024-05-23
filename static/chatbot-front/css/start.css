@@ -75,7 +75,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   &:hover {
-    background-color: #3c4366;
-    border: 1px solid #3c4366;
+    background-color: #727cac;
+    border: 1px solid #727cac;
   }
 }

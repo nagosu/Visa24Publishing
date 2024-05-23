@@ -31,7 +31,8 @@
 .content__title {
   display: flex;
   margin: 30px auto;
-  font-size: 22px;
+  padding-top: 5px;
+  font-size: 24px;
   font-weight: 700;
   color: #000;
   user-select: none;
@@ -52,7 +53,7 @@
   height: 70px;
   margin: 30px auto;
   padding: 10px;
-  border-radius: 18px;
+  border-radius: 30px;
   background-color: #4e5784;
   border: 1px solid #4e5784;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -64,7 +65,7 @@
   user-select: none;
 
   &:hover {
-    background-color: #3c4366;
-    border: 1px solid #3c4366;
+    background-color: #727cac;
+    border: 1px solid #727cac;
   }
 }
