@@ -447,8 +447,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 음성인식 버튼 클릭 시 active
+  const defaultIcon = voiceButton.querySelector(".default-icon");
+  const activeIcon = voiceButton.querySelector(".active-icon");
   voiceButton.addEventListener("click", function () {
     voiceButton.classList.toggle("active");
+    if (voiceButton.classList.contains("active")) {
+      defaultIcon.style.display = "none";
+      activeIcon.style.display = "block";
+    } else {
+      defaultIcon.style.display = "block";
+      activeIcon.style.display = "none";
+    }
   });
 
   // 필수 개인정보 미입력 시 경고 메시지 표시
